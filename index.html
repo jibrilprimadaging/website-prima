@@ -1950,7 +1950,7 @@
         // ── Init Supabase ──
         const { createClient } = supabase;
         let db = null;
-        if (SUPABASE_URL !== 'https://ocptcnqtrbbwpwfxioim.supabase.co') {
+        if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
             db = createClient(SUPABASE_URL, SUPABASE_ANON);
         }
 
