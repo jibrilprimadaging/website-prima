@@ -1681,7 +1681,8 @@
                 <p>Nomor Pokok Wajib Pajak resmi terdaftar pada Kantor Pelayanan Pajak Pratama Jakarta Kebayoran Baru
                     Dua.</p>
                 <p class="cert-npwp">NPWP: 10.00000.060.2-502.000</p>
-                <a href="assets/certs/NPWP.pdf" target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i> Lihat
+                <a href="https://ocptcnqtrbbwpwfxioim.supabase.co/storage/v1/object/public/certs/NPWP.pdf"
+                    target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i> Lihat
                     Dokumen</a>
             </div>
             <div class="cert-card fade-up">
@@ -1690,7 +1691,8 @@
                 <p>SK Pajak resmi dari Direktorat Jenderal Pajak Kementerian Keuangan RI, terdaftar sejak 2 Oktober
                     2025.</p>
                 <p class="cert-npwp">No: S-00674/SKT-WP-CT/KPP.3002/2025</p>
-                <a href="assets/certs/SK_PAJAK.pdf" target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i>
+                <a href="https://ocptcnqtrbbwpwfxioim.supabase.co/storage/v1/object/public/certs/SK%20PAJAK.pdfs"
+                    target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i>
                     Lihat Dokumen</a>
             </div>
             <div class="cert-card fade-up">
@@ -1941,14 +1943,14 @@
         // ══════════════════════════════════════
         // CONFIG — GANTI DENGAN DATA MILIKMU
         // ══════════════════════════════════════
-        const SUPABASE_URL = 'YOUR_SUPABASE_URL';      // Contoh: https://xyzxyzxyz.supabase.co
-        const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY'; // Dari: Project Settings > API > anon key
+        const SUPABASE_URL = 'https://ocptcnqtrbbwpwfxioim.supabase.co';      // Contoh: https://xyzxyzxyz.supabase.co
+        const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jcHRjbnF0cmJid3B3Znhpb2ltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMjk1NTYsImV4cCI6MjA5NTgwNTU1Nn0.bllSCX2Nk673MWCNp3EVuFyavRvHjbN4XP83w9DNM1Q'; // Dari: Project Settings > API > anon key
         const WA_ADMIN = '6282310048608';
 
         // ── Init Supabase ──
         const { createClient } = supabase;
         let db = null;
-        if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+        if (SUPABASE_URL !== 'https://ocptcnqtrbbwpwfxioim.supabase.co') {
             db = createClient(SUPABASE_URL, SUPABASE_ANON);
         }
 
