@@ -4,50 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Prima Daging Segar | Distributor Protein Premium Halal</title>
+    <title>PT Prima Daging Segar | Premium Protein Distributor B2B</title>
     <meta name="description"
-        content="PT Prima Daging Segar adalah distributor B2B terpercaya untuk produk daging sapi, ayam, bebek, dan seafood halal berkualitas tinggi di Indonesia.">
-    <meta name="keywords"
-        content="distributor daging, karkas ayam, daging sapi import, boneless ayam, wagyu jakarta, poultry B2B, prima daging segar">
-    <meta property="og:title" content="PT Prima Daging Segar — Distributor Protein Premium Halal">
-    <meta property="og:description"
-        content="Solusi lengkap distribusi protein halal: poultry, daging sapi import, bebek, seafood. Melayani bisnis F&B di seluruh Indonesia.">
-    <meta property="og:type" content="website">
+        content="PT Prima Daging Segar — distributor B2B protein premium halal. Poultry, daging sapi import, bebek, seafood untuk bisnis F&B Indonesia.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        /* ===================================================
-   CSS — PT PRIMA DAGING SEGAR
-   Brand: Gold #8B6009 | Cream #FAF3E4 | Dark #1E0E00
-=================================================== */
+        /* ═══════════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════════ */
         :root {
-            --gold: #8B6009;
-            --gold-mid: #A87C18;
-            --gold-light: #C49A28;
-            --gold-pale: #E8D090;
-            --gold-glow: rgba(196, 154, 40, 0.18);
-            --cream: #FAF3E4;
-            --cream-mid: #F3E8D0;
-            --cream-dark: #E8D8B8;
-            --dark: #1E0E00;
-            --dark-mid: #3A2000;
-            --brown: #5C3A18;
-            --brown-light: #8B6040;
-            --white: #FFFFFF;
             --red: #C41E1E;
-            --grad-gold: linear-gradient(135deg, #5C3A00 0%, #8B6009 30%, #C49A28 55%, #8B6009 78%, #5C3A00 100%);
-            --grad-hero: linear-gradient(145deg, rgba(20, 8, 0, .93) 0%, rgba(80, 48, 4, .82) 100%);
-            --grad-card: linear-gradient(145deg, #250e00, #4a2c10);
-            --shadow-sm: 0 2px 12px rgba(139, 96, 9, .12);
-            --shadow-md: 0 6px 28px rgba(139, 96, 9, .20);
-            --shadow-lg: 0 14px 52px rgba(139, 96, 9, .28);
-            --border: 1px solid rgba(139, 96, 9, .22);
-            --radius: 10px;
-            --radius-lg: 18px;
+            --red-deep: #8B1212;
+            --red-dark: #5C0A0A;
+            --gold: #C49A28;
+            --gold-pale: #E8C878;
+            --gold-dim: rgba(196, 154, 40, .15);
+            --green: #1C5C1C;
+            --dark: #0A0604;
+            --dark-mid: #150C05;
+            --dark-rich: #1E1008;
+            --brown: #3A2010;
+            --cream: #FAF5EE;
+            --cream-mid: #F2E8D8;
+            --white: #FFFFFF;
+            --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Barlow', sans-serif;
+            --font-cond: 'Barlow Condensed', sans-serif;
         }
 
         * {
@@ -62,11 +50,17 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font-body);
             background: var(--cream);
             color: var(--dark);
             line-height: 1.65;
             overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block
         }
 
         a {
@@ -74,326 +68,388 @@
             color: inherit
         }
 
-        img {
-            max-width: 100%;
-            height: auto
+        /* ── UTILITIES ── */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px
         }
 
-        /* ── UTILITY ── */
-        .section-label {
-            display: block;
+        .tag {
+            display: inline-block;
+            font-family: var(--font-cond);
+            font-size: .7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600
+        }
+
+        .section-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            width: 32px;
+            height: 2px;
+            background: var(--red)
+        }
+
+        .section-eyebrow span {
+            font-family: var(--font-cond);
             font-size: .72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 10px
+            color: var(--red);
+            font-weight: 600
         }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.9rem, 3.8vw, 3rem);
-            line-height: 1.2;
-            color: var(--dark);
-            margin-bottom: 14px
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            line-height: 1.1
         }
 
-        .gold-text {
-            background: var(--grad-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1)
         }
 
-        .divider {
-            width: 52px;
-            height: 3px;
-            background: linear-gradient(to right, var(--gold), var(--gold-light));
-            border-radius: 2px;
-            margin-bottom: 22px
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
         }
 
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: #fff;
-            padding: 13px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: .9rem;
-            letter-spacing: .4px;
-            border: none;
-            cursor: pointer;
-            transition: all .3s;
-            box-shadow: 0 4px 18px rgba(139, 96, 9, .38)
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(139, 96, 9, .52)
-        }
-
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: #fff;
-            padding: 13px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: .9rem;
-            letter-spacing: .4px;
-            border: 2px solid rgba(255, 255, 255, .55);
-            cursor: pointer;
-            transition: all .3s
-        }
-
-        .btn-outline:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, .1);
-            transform: translateY(-2px)
-        }
-
-        /* ── NAVBAR ── */
-        nav {
+        /* ═══════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════ */
+        #nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(250, 243, 228, .96);
-            backdrop-filter: blur(12px);
-            border-bottom: var(--border);
-            padding: 14px 6%;
+            z-index: 1000;
+            transition: all .4s ease;
+            padding: 22px 0
+        }
+
+        #nav.solid {
+            background: rgba(10, 6, 4, .95);
+            backdrop-filter: blur(16px);
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(196, 154, 40, .15)
+        }
+
+        .nav-inner {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: box-shadow .3s
+            align-items: center
         }
 
-        nav.scrolled {
-            box-shadow: var(--shadow-md)
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-
-        .nav-logo img {
-            height: 46px;
-            width: auto;
-            object-fit: contain
-        }
-
-        .nav-logo-text {
+        .nav-brand {
             display: flex;
             flex-direction: column
         }
 
-        .nav-logo-text span:first-child {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            background: var(--grad-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text
+        .nav-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: .5px
         }
 
-        .nav-logo-text span:last-child {
+        .nav-brand-sub {
+            font-family: var(--font-cond);
             font-size: .6rem;
-            color: var(--brown);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--gold);
             margin-top: 1px
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
-            list-style: none;
             align-items: center;
-            gap: 28px
+            gap: 36px
         }
 
-        .nav-menu a {
-            font-size: .88rem;
+        .nav-links a {
+            font-family: var(--font-cond);
+            font-size: .8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .7);
             font-weight: 500;
-            color: var(--brown);
-            transition: color .25s;
-            position: relative
+            transition: color .3s
         }
 
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--gold);
-            transition: width .3s
-        }
-
-        .nav-menu a:hover {
+        .nav-links a:hover {
             color: var(--gold)
         }
 
-        .nav-menu a:hover::after {
-            width: 100%
+        .nav-cta {
+            background: var(--red);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            font-family: var(--font-cond);
+            font-size: .75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background .3s !important;
+            border: none
         }
 
-        .nav-wa {
-            background: var(--gold) !important;
-            color: #fff !important;
-            padding: 9px 20px !important;
-            border-radius: 5px
-        }
-
-        .nav-wa::after {
-            display: none !important
-        }
-
-        .nav-wa:hover {
-            background: var(--gold-mid) !important
+        .nav-cta:hover {
+            background: var(--red-deep) !important
         }
 
         .hamburger {
             display: none;
             flex-direction: column;
             gap: 5px;
-            cursor: pointer;
             background: none;
             border: none;
+            cursor: pointer;
             padding: 4px
         }
 
         .hamburger span {
             display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--gold);
-            transition: all .3s;
-            border-radius: 2px
+            width: 22px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all .3s
         }
 
-        /* ── HERO ── */
+        /* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
         #hero {
-            min-height: 100vh;
-            background: var(--grad-hero), url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=1920&q=80&fit=crop') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 130px 6% 70px;
+            height: 100vh;
+            min-height: 700px;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background: #0A0604;
         }
 
-        #hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, rgba(139, 96, 9, .15) 0%, transparent 70%);
-            pointer-events: none
+            background: url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=1920&q=90&fit=crop') center/cover no-repeat;
+            transform: scale(1.08);
+            animation: hero-drift 18s ease-in-out infinite alternate;
+            filter: brightness(.55) saturate(1.2);
+        }
+
+        @keyframes hero-drift {
+            0% {
+                transform: scale(1.08) translate(0, 0)
+            }
+
+            100% {
+                transform: scale(1.14) translate(-1%, -1%)
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 6, 4, .1) 0%, rgba(10, 6, 4, .2) 40%, rgba(10, 6, 4, .9) 80%, rgba(10, 6, 4, 1) 100%);
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            background-image: var(--grain);
+            opacity: .6;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-bottom: 80px;
+            width: 100%
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px
         }
 
         .hero-badge {
-            display: inline-block;
-            background: rgba(196, 154, 40, .15);
-            border: 1px solid rgba(196, 154, 40, .45);
-            color: var(--gold-pale);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: .72rem;
-            letter-spacing: 2.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(196, 154, 40, .4);
+            padding: 8px 18px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero-badge span {
+            font-family: var(--font-cond);
+            font-size: .68rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 24px;
-            font-weight: 500
+            color: var(--gold)
         }
 
         .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 22px;
-            max-width: 800px
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 28px;
+            max-width: 900px;
         }
 
         .hero-title em {
             font-style: italic;
-            background: linear-gradient(135deg, #C49A28, #E8D090, #C49A28);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text
-        }
-
-        .hero-subtitle {
-            color: rgba(255, 255, 255, .8);
-            font-size: 1.05rem;
-            max-width: 580px;
-            margin: 0 auto 38px;
-            line-height: 1.85
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 14px;
-            justify-content: center;
-            flex-wrap: wrap
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 52px;
-            margin-top: 72px;
-            flex-wrap: wrap;
-            border-top: 1px solid rgba(255, 255, 255, .12);
-            padding-top: 48px
-        }
-
-        .hero-stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.6rem;
-            font-weight: 700;
             color: var(--gold-pale)
         }
 
-        .hero-stat-lbl {
-            color: rgba(255, 255, 255, .6);
-            font-size: .72rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 4px
+        .hero-title strong {
+            font-weight: 700
         }
 
-        .scroll-hint {
+        .hero-sub {
+            color: rgba(255, 255, 255, .65);
+            font-size: 1.05rem;
+            max-width: 520px;
+            line-height: 1.85;
+            margin-bottom: 44px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--red);
+            color: var(--white);
+            padding: 15px 34px;
+            font-family: var(--font-cond);
+            font-size: .82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-deep);
+            transform: translateY(-2px)
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, .75);
+            padding: 15px 34px;
+            font-family: var(--font-cond);
+            font-size: .82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, .3);
+            transition: all .3s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--white);
+            color: var(--white);
+            background: rgba(255, 255, 255, .05)
+        }
+
+        .hero-stats {
             position: absolute;
-            bottom: 32px;
+            right: 40px;
+            bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            z-index: 2;
+            text-align: right;
+        }
+
+        .hero-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--gold-pale);
+            line-height: 1
+        }
+
+        .hero-stat-lbl {
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .45);
+            margin-top: 3px
+        }
+
+        .hero-scroll {
+            position: absolute;
             left: 50%;
+            bottom: 32px;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
-            color: rgba(255, 255, 255, .4);
-            font-size: .72rem;
-            letter-spacing: 1.5px;
+            gap: 8px;
+            font-family: var(--font-cond);
+            font-size: .62rem;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            animation: bounce 2.5s infinite
+            color: rgba(255, 255, 255, .35);
+            z-index: 2;
+            animation: scroll-bounce 2.5s ease-in-out infinite;
         }
 
-        .scroll-hint i {
-            font-size: .9rem
+        .hero-scroll i {
+            font-size: .7rem
         }
 
-        @keyframes bounce {
+        @keyframes scroll-bounce {
 
             0%,
             100% {
@@ -405,616 +461,623 @@
             }
         }
 
-        /* ── ABOUT ── */
+        /* ═══════════════════════════════════════════════════
+   MARQUEE (live ticker)
+═══════════════════════════════════════════════════ */
+        .marquee-bar {
+            background: var(--red);
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 3
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 0;
+            animation: marquee 32s linear infinite;
+            white-space: nowrap
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-family: var(--font-cond);
+            font-size: .72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .9);
+            padding: 0 32px;
+        }
+
+        .marquee-item::after {
+            content: '◆';
+            color: rgba(255, 255, 255, .4);
+            font-size: .5rem
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════════ */
         #tentang {
-            padding: 90px 6%;
+            padding: 100px 0;
             background: var(--cream)
         }
 
-        .about-wrap {
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 72px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto
+            gap: 80px;
+            align-items: center
         }
 
-        .about-p {
-            color: var(--brown);
-            line-height: 1.9;
-            font-size: .97rem;
-            margin-bottom: 18px
+        .about-text-wrap p {
+            color: #5A3A20;
+            font-size: 1.02rem;
+            line-height: 1.95;
+            margin-bottom: 20px
         }
 
-        .about-features {
+        .about-title {
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            color: var(--dark);
+            margin-bottom: 28px;
+            font-weight: 400
+        }
+
+        .about-title em {
+            font-style: italic;
+            color: var(--red)
+        }
+
+        .about-pillars {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-top: 32px
+            gap: 16px;
+            margin-top: 36px
         }
 
-        .af {
+        .pillar {
             display: flex;
             align-items: flex-start;
-            gap: 13px
+            gap: 14px;
+            padding: 18px;
+            border: 1px solid rgba(196, 154, 40, .2);
+            background: rgba(196, 154, 40, .04)
         }
 
-        .af-icon {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            background: var(--gold-glow);
-            border: var(--border);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-        .af-icon i {
-            color: var(--gold);
-            font-size: 1rem
-        }
-
-        .af-title {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: .88rem;
-            margin-bottom: 2px
-        }
-
-        .af-desc {
-            color: var(--brown-light);
-            font-size: .78rem;
-            line-height: 1.5
-        }
-
-        .about-img-wrap {
-            position: relative
-        }
-
-        .about-img-wrap img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg)
-        }
-
-        .about-badge {
-            position: absolute;
-            bottom: 28px;
-            left: -28px;
-            background: var(--gold);
-            color: #fff;
-            padding: 18px 22px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            min-width: 160px
-        }
-
-        .about-badge-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            display: block
-        }
-
-        .about-badge-txt {
-            font-size: .72rem;
-            opacity: .9;
-            letter-spacing: .5px
-        }
-
-        /* ── VISI MISI ── */
-        #visi-misi {
-            padding: 90px 6%;
-            background: var(--dark)
-        }
-
-        #visi-misi .section-label {
-            color: var(--gold-pale)
-        }
-
-        #visi-misi .section-title {
-            color: #fff
-        }
-
-        #visi-misi .divider {
-            background: linear-gradient(to right, var(--gold-pale), var(--gold-light))
-        }
-
-        .vm-intro {
-            color: rgba(255, 255, 255, .6);
-            font-size: .97rem;
-            max-width: 560px;
-            margin-bottom: 52px;
-            line-height: 1.9
-        }
-
-        .vm-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            max-width: 1100px
-        }
-
-        .vm-card {
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(196, 154, 40, .25);
-            border-radius: var(--radius-lg);
-            padding: 42px 36px
-        }
-
-        .vm-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(196, 154, 40, .12);
-            border: 1px solid rgba(196, 154, 40, .3);
-            border-radius: 50%;
+        .pillar-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: var(--red);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 22px
+            font-size: .9rem;
+            color: var(--white)
         }
 
-        .vm-icon i {
-            color: var(--gold-pale);
-            font-size: 1.5rem
+        .pillar-title {
+            font-family: var(--font-cond);
+            font-size: .78rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--dark);
+            margin-bottom: 3px
         }
 
-        .vm-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--gold-pale);
-            font-size: 1.55rem;
-            margin-bottom: 16px
+        .pillar-desc {
+            font-size: .78rem;
+            color: #7A5A38;
+            line-height: 1.5
         }
 
-        .vm-card p,
-        .vm-card li {
-            color: rgba(255, 255, 255, .7);
-            font-size: .93rem;
-            line-height: 1.85
+        .about-visual {
+            position: relative
         }
 
-        .vm-card ul {
-            list-style: none;
-            padding: 0
-        }
-
-        .vm-card li {
-            padding: 7px 0 7px 22px;
+        .about-img-frame {
             position: relative;
-            border-bottom: 1px solid rgba(255, 255, 255, .06)
+            aspect-ratio: 4/5;
+            overflow: hidden;
         }
 
-        .vm-card li:last-child {
-            border-bottom: none
+        .about-img-frame img,
+        .about-img-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.1);
         }
 
-        .vm-card li::before {
-            content: '◆';
+        .about-img-placeholder {
+            background: linear-gradient(145deg, var(--dark-rich), var(--brown));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, .4);
+            letter-spacing: 2px;
+        }
+
+        .about-accent {
             position: absolute;
-            left: 0;
-            color: var(--gold-pale);
-            font-size: .5rem;
-            top: 14px
+            bottom: -24px;
+            right: -24px;
+            background: var(--red);
+            color: var(--white);
+            padding: 28px 30px;
+            font-family: var(--font-display);
         }
 
-        /* ── PRODUCTS ── */
+        .about-accent-num {
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1;
+            display: block
+        }
+
+        .about-accent-txt {
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: .85
+        }
+
+        .about-img-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(10, 6, 4, .8);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════════════
+   PRODUCTS
+═══════════════════════════════════════════════════ */
         #produk {
-            padding: 90px 6%;
-            background: var(--cream-mid)
+            padding: 100px 0;
+            background: var(--dark)
         }
 
-        .prod-header {
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto 52px
+        .produk-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+            gap: 24px
         }
 
-        .prod-header p {
-            color: var(--brown);
-            font-size: .97rem;
-            line-height: 1.8
+        .produk-title {
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            color: var(--white);
+            font-weight: 300;
+            max-width: 560px
+        }
+
+        .produk-title em {
+            font-style: italic;
+            color: var(--gold-pale)
+        }
+
+        .produk-desc {
+            color: rgba(255, 255, 255, .5);
+            font-size: .92rem;
+            max-width: 360px;
+            line-height: 1.8;
+            text-align: right
         }
 
         .prod-tabs {
             display: flex;
-            justify-content: center;
-            gap: 8px;
+            gap: 0;
             flex-wrap: wrap;
-            margin-bottom: 44px
+            margin-bottom: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
         }
 
         .prod-tab {
-            padding: 9px 22px;
-            border-radius: 50px;
-            border: 1.5px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            font-size: .82rem;
+            font-family: var(--font-cond);
+            font-size: .72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, .4);
             cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
             transition: all .25s;
-            font-family: 'DM Sans', sans-serif
         }
 
         .prod-tab.active,
         .prod-tab:hover {
-            background: var(--gold);
-            color: #fff
+            color: var(--gold);
+            border-bottom-color: var(--gold)
         }
 
         .prod-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 22px;
-            max-width: 1200px;
-            margin: 0 auto
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 2px
         }
 
         .prod-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
+            position: relative;
             overflow: hidden;
-            border: var(--border);
-            transition: all .3s;
-            box-shadow: var(--shadow-sm)
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            background: var(--dark-rich);
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
         }
 
         .prod-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--gold-mid)
+            z-index: 2;
+            transform: scale(1.02)
         }
 
-        .prod-card-head {
-            background: var(--grad-card);
-            padding: 28px 26px 22px;
-            position: relative;
-            overflow: hidden
-        }
-
-        .prod-card-head::after {
-            content: '';
+        .prod-card-img {
             position: absolute;
-            top: -18px;
-            right: -18px;
-            width: 72px;
-            height: 72px;
-            background: rgba(196, 154, 40, .1);
-            border-radius: 50%
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform .6s cubic-bezier(.16, 1, .3, 1);
+            filter: brightness(.65) saturate(1.1);
         }
 
-        .prod-emoji {
-            font-size: 2.4rem;
-            margin-bottom: 8px;
-            display: block
+        .prod-card:hover .prod-card-img {
+            transform: scale(1.08);
+            filter: brightness(.5) saturate(1.2)
         }
 
-        .prod-name {
-            font-family: 'Cormorant Garamond', serif;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 3px
+        .prod-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(10, 6, 4, .92) 0%, rgba(10, 6, 4, .2) 50%, transparent 100%);
         }
 
-        .prod-sub {
-            color: rgba(232, 208, 144, .85);
-            font-size: .78rem
+        .prod-card-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 24px;
+            transform: translateY(44px);
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
         }
 
-        .prod-body {
-            padding: 20px 24px 16px
+        .prod-card:hover .prod-card-body {
+            transform: translateY(0)
         }
 
-        .prod-tags {
+        .prod-card-cat {
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .prod-card-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .prod-card-sub {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .55);
+            margin-bottom: 16px;
+            line-height: 1.4
+        }
+
+        .prod-card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
-            margin-bottom: 14px
+            margin-bottom: 18px
         }
 
-        .prod-tag {
-            padding: 3px 10px;
-            border-radius: 50px;
-            font-size: .7rem;
-            border: var(--border);
-            color: var(--brown);
-            background: var(--cream)
+        .prod-card-tag {
+            font-family: var(--font-cond);
+            font-size: .62rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .6);
+            padding: 3px 9px;
         }
 
-        .prod-tag.hot {
-            background: rgba(139, 96, 9, .1);
-            border-color: rgba(139, 96, 9, .3);
-            color: var(--gold);
-            font-weight: 600
+        .prod-card-tag.hot {
+            border-color: var(--red);
+            color: var(--red);
+            background: rgba(196, 30, 30, .1)
         }
 
-        .prod-desc {
-            color: var(--brown);
-            font-size: .84rem;
-            line-height: 1.7
-        }
-
-        .prod-card-foot {
-            padding: 0 24px 22px
-        }
-
-        .btn-request {
-            width: 100%;
-            padding: 11px;
-            background: transparent;
-            border: 1.5px solid var(--gold);
-            color: var(--gold);
-            border-radius: 7px;
-            font-weight: 600;
-            font-size: .88rem;
-            cursor: pointer;
-            transition: all .25s;
-            font-family: 'DM Sans', sans-serif;
+        .prod-order-btn {
             display: flex;
             align-items: center;
+            gap: 8px;
+            font-family: var(--font-cond);
+            font-size: .72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--red);
+            border: none;
+            cursor: pointer;
+            padding: 10px 18px;
+            width: 100%;
             justify-content: center;
-            gap: 7px
+            transition: background .25s;
         }
 
-        .btn-request:hover {
+        .prod-order-btn:hover {
+            background: var(--red-deep)
+        }
+
+        .prod-corner-label {
+            position: absolute;
+            top: 18px;
+            left: 18px;
             background: var(--gold);
-            color: #fff
+            color: var(--dark);
+            font-family: var(--font-cond);
+            font-size: .6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 4px 10px;
         }
 
-        /* ── CLIENTS ── */
+        /* ═══════════════════════════════════════════════════
+   CLIENTS
+═══════════════════════════════════════════════════ */
         #klien {
-            padding: 90px 6%;
-            background: var(--cream)
+            padding: 100px 0;
+            background: var(--cream-mid)
         }
 
-        .klien-header {
+        .klien-head {
             text-align: center;
             max-width: 640px;
-            margin: 0 auto 56px
+            margin: 0 auto 64px
         }
 
-        .klien-header p {
-            color: var(--brown);
-            font-size: .97rem;
+        .klien-title {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            color: var(--dark);
+            font-weight: 400;
+            margin-bottom: 16px
+        }
+
+        .klien-title em {
+            font-style: italic;
+            color: var(--red)
+        }
+
+        .klien-desc {
+            color: #7A5A38;
+            font-size: .95rem;
             line-height: 1.8
         }
 
         .klien-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
-            gap: 20px;
-            max-width: 1050px;
-            margin: 0 auto
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2px
         }
 
         .klien-card {
             background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 32px 20px;
+            padding: 40px 28px;
             text-align: center;
-            border: var(--border);
-            transition: all .3s
+            border-top: 3px solid transparent;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .klien-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--gold)
+            border-top-color: var(--red);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(10, 6, 4, .12)
         }
 
-        .klien-logo {
-            width: 78px;
-            height: 78px;
-            object-fit: contain;
-            margin: 0 auto 14px;
-            display: block;
-            border-radius: 8px
-        }
-
-        .klien-logo-placeholder {
-            width: 78px;
-            height: 78px;
-            background: var(--gold-glow);
+        .klien-card-logo {
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
+            margin: 0 auto 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 14px;
-            font-size: 1.8rem
+            overflow: hidden;
+            border: 1px solid rgba(196, 154, 40, .2);
+        }
+
+        .klien-card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%
+        }
+
+        .klien-logo-init {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--brown);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .klien-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
             color: var(--dark);
             margin-bottom: 5px;
             font-weight: 600
         }
 
         .klien-cat {
-            font-size: .74rem;
-            color: var(--brown-light);
-            line-height: 1.5
+            font-size: .78rem;
+            color: #8B6040;
+            line-height: 1.5;
+            margin-bottom: 10px
         }
 
         .klien-badge {
             display: inline-block;
-            margin-top: 10px;
+            font-family: var(--font-cond);
+            font-size: .62rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(196, 30, 30, .3);
+            color: var(--red);
             padding: 3px 10px;
-            background: rgba(139, 96, 9, .08);
-            border: var(--border);
-            border-radius: 50px;
-            font-size: .68rem;
-            color: var(--gold);
-            letter-spacing: .5px
         }
 
-        /* ── CERTIFICATIONS ── */
-        #legalitas {
-            padding: 90px 6%;
-            background: var(--cream-mid)
+        .klien-new {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--green);
+            color: var(--white);
+            font-family: var(--font-cond);
+            font-size: .55rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 3px 8px;
         }
 
-        .cert-header {
-            text-align: center;
-            max-width: 640px;
-            margin: 0 auto 52px
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 22px;
-            max-width: 950px;
-            margin: 0 auto
-        }
-
-        .cert-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 34px;
-            border: var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            box-shadow: var(--shadow-sm)
-        }
-
-        .cert-icon-wrap {
-            width: 52px;
-            height: 52px;
-            background: rgba(139, 96, 9, .08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-        .cert-icon-wrap i {
-            color: var(--gold);
-            font-size: 1.3rem
-        }
-
-        .cert-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--dark);
-            font-size: 1.15rem;
-            font-weight: 600
-        }
-
-        .cert-card p {
-            color: var(--brown);
-            font-size: .85rem;
-            line-height: 1.75;
-            flex: 1
-        }
-
-        .cert-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            color: var(--gold);
-            font-size: .84rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 1.5px solid var(--gold);
-            border-radius: 6px;
-            transition: all .25s;
-            margin-top: auto
-        }
-
-        .cert-link:hover {
-            background: var(--gold);
-            color: #fff
-        }
-
-        .cert-npwp {
-            font-size: .78rem;
-            color: var(--brown-light);
-            margin-top: 4px;
-            font-family: monospace;
-            letter-spacing: .5px
-        }
-
-        /* ── CONTACT ── */
+        /* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
         #kontak {
-            padding: 90px 6%;
-            background: var(--cream)
+            padding: 100px 0;
+            background: var(--dark-mid);
+            position: relative;
+            overflow: hidden;
         }
 
-        .kontak-wrap {
+        #kontak::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=60&fit=crop') center/cover;
+            opacity: .08;
+        }
+
+        .kontak-inner {
+            position: relative;
+            z-index: 2
+        }
+
+        .kontak-grid {
             display: grid;
-            grid-template-columns: 1fr 1.25fr;
-            gap: 68px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
             align-items: start
         }
 
-        .kontak-info .section-title {
-            margin-bottom: 12px
+        .kontak-info-title {
+            font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 20px
         }
 
-        .kontak-info>p {
-            color: var(--brown);
+        .kontak-info-title em {
+            font-style: italic;
+            color: var(--gold-pale)
+        }
+
+        .kontak-info-desc {
+            color: rgba(255, 255, 255, .5);
             font-size: .95rem;
             line-height: 1.9;
-            margin-bottom: 36px
+            margin-bottom: 44px
         }
 
-        .ci-items {
+        .ci-list {
             display: flex;
             flex-direction: column;
-            gap: 22px
+            gap: 24px
         }
 
         .ci {
             display: flex;
             align-items: flex-start;
-            gap: 16px
+            gap: 18px
         }
 
         .ci-icon {
-            width: 46px;
-            height: 46px;
-            min-width: 46px;
-            background: var(--gold-glow);
-            border: var(--border);
-            border-radius: 9px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border: 1px solid rgba(196, 154, 40, .3);
             display: flex;
             align-items: center;
-            justify-content: center
-        }
-
-        .ci-icon i {
+            justify-content: center;
             color: var(--gold);
-            font-size: 1.1rem
+            font-size: .95rem;
         }
 
         .ci-label {
-            display: block;
-            font-size: .75rem;
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: .8px;
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 3px
+            color: rgba(255, 255, 255, .4);
+            display: block;
+            margin-bottom: 4px
         }
 
         .ci-val {
-            color: var(--brown);
+            color: rgba(255, 255, 255, .8);
             font-size: .9rem;
             line-height: 1.6
         }
 
         .ci-val a {
-            color: var(--brown);
+            color: rgba(255, 255, 255, .8);
             transition: color .25s
         }
 
@@ -1022,26 +1085,24 @@
             color: var(--gold)
         }
 
-        .kontak-form-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 42px;
-            box-shadow: var(--shadow-md);
-            border: var(--border)
+        .kontak-form-box {
+            background: rgba(250, 245, 238, .04);
+            border: 1px solid rgba(196, 154, 40, .18);
+            padding: 44px
         }
 
-        .kontak-form-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.55rem;
-            color: var(--dark);
+        .kontak-form-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--white);
             margin-bottom: 6px
         }
 
-        .kontak-form-card>p {
-            color: var(--brown);
-            font-size: .85rem;
-            margin-bottom: 28px;
-            line-height: 1.7
+        .kontak-form-sub {
+            color: rgba(255, 255, 255, .45);
+            font-size: .82rem;
+            margin-bottom: 30px;
+            line-height: 1.6
         }
 
         .form-row {
@@ -1050,146 +1111,174 @@
             gap: 14px
         }
 
-        .form-group {
-            margin-bottom: 18px
+        .fg {
+            margin-bottom: 16px
         }
 
-        .form-group label {
+        .fg label {
             display: block;
-            font-size: .8rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 6px;
-            letter-spacing: .3px
+            font-family: var(--font-cond);
+            font-size: .68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 7px;
+            font-weight: 600
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .fg input,
+        .fg select,
+        .fg textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1.5px solid var(--cream-dark);
-            border-radius: 7px;
+            padding: 13px 16px;
+            background: rgba(250, 245, 238, .06);
+            border: 1px solid rgba(196, 154, 40, .18);
+            color: var(--white);
+            font-family: var(--font-body);
             font-size: .88rem;
-            color: var(--dark);
-            background: var(--cream);
             transition: border-color .25s;
-            font-family: 'DM Sans', sans-serif
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .fg input::placeholder,
+        .fg textarea::placeholder {
+            color: rgba(255, 255, 255, .25)
+        }
+
+        .fg input:focus,
+        .fg select:focus,
+        .fg textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            background: var(--white)
+            border-color: var(--gold)
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 110px
-        }
-
-        .form-group select {
+        .fg select {
+            color: rgba(255, 255, 255, .7);
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238B6009' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23C49A28' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 14px center;
-            padding-right: 38px
+            padding-right: 36px
+        }
+
+        .fg select option {
+            background: var(--dark-mid);
+            color: var(--white)
+        }
+
+        .fg textarea {
+            resize: vertical;
+            min-height: 100px
         }
 
         .btn-submit {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: #fff;
+            padding: 15px;
+            background: var(--red);
+            color: var(--white);
             border: none;
-            border-radius: 7px;
-            font-size: .95rem;
-            font-weight: 700;
             cursor: pointer;
-            transition: all .3s;
-            font-family: 'DM Sans', sans-serif;
-            letter-spacing: .4px
+            font-family: var(--font-cond);
+            font-size: .78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: background .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 26px rgba(139, 96, 9, .44)
+            background: var(--red-deep)
         }
 
         .btn-submit:disabled {
-            opacity: .7;
-            cursor: not-allowed;
-            transform: none
+            opacity: .6;
+            cursor: not-allowed
         }
 
-        .msg-success {
-            display: none;
-            background: #f0faf0;
-            border: 1px solid #4caf50;
-            color: #2e7d32;
-            padding: 14px 18px;
-            border-radius: 8px;
-            margin-top: 14px;
-            font-size: .88rem
+        .form-msg {
+            margin-top: 12px;
+            padding: 12px 16px;
+            font-size: .82rem;
+            display: none
         }
 
-        .msg-error {
-            display: none;
-            background: #fff3f3;
-            border: 1px solid #e57373;
-            color: #c62828;
-            padding: 14px 18px;
-            border-radius: 8px;
-            margin-top: 14px;
-            font-size: .88rem
+        .form-msg.ok {
+            background: rgba(28, 92, 28, .2);
+            border: 1px solid rgba(28, 92, 28, .4);
+            color: #7CBA7C
         }
 
-        /* ── FOOTER ── */
+        .form-msg.err {
+            background: rgba(196, 30, 30, .15);
+            border: 1px solid rgba(196, 30, 30, .3);
+            color: #E87C7C
+        }
+
+        /* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
         footer {
             background: var(--dark);
-            padding: 68px 6% 28px
+            padding: 60px 0 28px;
+            border-top: 1px solid rgba(196, 154, 40, .12)
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 48px;
-            max-width: 1200px;
-            margin: 0 auto 48px
+            margin-bottom: 48px
         }
 
-        .footer-brand img {
-            height: 52px;
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 4px
+        }
+
+        .footer-brand-sub {
+            font-family: var(--font-cond);
+            font-size: .6rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
             margin-bottom: 16px
         }
 
-        .footer-brand p {
-            color: rgba(255, 255, 255, .55);
+        .footer-brand-desc {
+            color: rgba(255, 255, 255, .4);
             font-size: .82rem;
-            line-height: 1.9;
-            margin-bottom: 14px
+            line-height: 1.85;
+            max-width: 280px;
+            margin-bottom: 20px
         }
 
-        .halal-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border: 1px solid rgba(196, 154, 40, .35);
-            border-radius: 4px;
-            font-size: .7rem;
-            color: var(--gold-pale);
-            letter-spacing: 1px
+        .footer-halal {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(28, 92, 28, .5);
+            padding: 6px 13px;
+            font-family: var(--font-cond);
+            font-size: .6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #6AC86A;
         }
 
         .footer-col h4 {
-            color: #fff;
-            font-size: .78rem;
-            letter-spacing: 1.5px;
+            font-family: var(--font-cond);
+            font-size: .65rem;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
             margin-bottom: 18px;
             padding-bottom: 8px;
-            border-bottom: 1px solid rgba(196, 154, 40, .2)
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
         }
 
         .footer-col ul {
@@ -1201,40 +1290,48 @@
         }
 
         .footer-col ul li a {
-            color: rgba(255, 255, 255, .55);
-            font-size: .83rem;
+            color: rgba(255, 255, 255, .45);
+            font-size: .82rem;
             transition: color .25s
         }
 
         .footer-col ul li a:hover {
-            color: var(--gold-pale)
+            color: var(--gold)
         }
 
         .footer-col ul li i {
-            width: 16px;
+            width: 14px;
             color: var(--gold-pale)
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-top: 1px solid rgba(255, 255, 255, .05);
             padding-top: 22px;
-            text-align: center;
-            font-size: .76rem;
-            color: rgba(255, 255, 255, .3);
-            max-width: 1200px;
-            margin: 0 auto
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px
         }
 
-        /* ── ORDER MODAL ── */
+        .footer-copy {
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .25)
+        }
+
+        /* ═══════════════════════════════════════════════════
+   ORDER MODAL
+═══════════════════════════════════════════════════ */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, .72);
+            background: rgba(10, 6, 4, .88);
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            padding: 20px
+            padding: 20px;
+            backdrop-filter: blur(8px);
         }
 
         .modal-overlay.active {
@@ -1242,199 +1339,193 @@
         }
 
         .modal {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            max-width: 620px;
+            background: var(--dark-rich);
+            border: 1px solid rgba(196, 154, 40, .2);
+            max-width: 640px;
             width: 100%;
             max-height: 92vh;
             overflow-y: auto;
-            box-shadow: 0 28px 80px rgba(0, 0, 0, .4)
         }
 
         .modal-head {
-            background: var(--grad-card);
-            padding: 30px 34px 26px;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            background: var(--red-dark);
+            padding: 30px 36px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(196, 154, 40, .15);
         }
 
         .modal-head-left h2 {
-            font-family: 'Cormorant Garamond', serif;
-            color: #fff;
+            font-family: var(--font-display);
+            color: var(--white);
             font-size: 1.5rem;
+            font-weight: 400;
             margin-bottom: 4px
         }
 
         .modal-head-left p {
-            color: rgba(255, 255, 255, .6);
-            font-size: .82rem
+            color: rgba(255, 255, 255, .5);
+            font-size: .8rem
         }
 
         .modal-close {
             background: none;
             border: none;
-            color: rgba(255, 255, 255, .7);
-            font-size: 1.4rem;
+            color: rgba(255, 255, 255, .5);
+            font-size: 1.3rem;
             cursor: pointer;
-            line-height: 1;
             transition: color .2s;
             padding: 0
         }
 
         .modal-close:hover {
-            color: #fff
+            color: var(--white)
         }
 
         .modal-body {
-            padding: 32px 34px
+            padding: 34px 36px
         }
 
-        .req-note {
-            background: rgba(139, 96, 9, .08);
+        .modal-note {
+            background: rgba(196, 154, 40, .08);
             border-left: 3px solid var(--gold);
             padding: 12px 16px;
-            border-radius: 0 6px 6px 0;
-            font-size: .82rem;
-            color: var(--brown);
-            margin-bottom: 24px;
-            line-height: 1.7
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 26px;
+            line-height: 1.7;
         }
 
-        /* ── WA FLOAT ── */
+        /* ═══════════════════════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════════════════════ */
         .wa-float {
             position: fixed;
-            bottom: 26px;
-            right: 26px;
+            bottom: 28px;
+            right: 28px;
             width: 62px;
             height: 62px;
-            background: #25D366;
             border-radius: 50%;
+            background: #25D366;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 18px rgba(37, 211, 102, .5);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
             z-index: 999;
-            transition: all .3s
+            transition: all .3s;
         }
 
         .wa-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 28px rgba(37, 211, 102, .65)
+            box-shadow: 0 8px 32px rgba(37, 211, 102, .6)
         }
 
         .wa-float i {
-            color: #fff;
+            color: var(--white);
             font-size: 1.9rem
         }
 
         .wa-float::before {
             content: '';
             position: absolute;
-            inset: -4px;
+            inset: -5px;
             border-radius: 50%;
-            background: rgba(37, 211, 102, .35);
-            animation: wa-pulse 2.2s infinite
+            background: rgba(37, 211, 102, .25);
+            animation: wa-ring 2.5s cubic-bezier(.36, .07, .19, .97) infinite;
         }
 
-        @keyframes wa-pulse {
-
-            0%,
-            100% {
+        @keyframes wa-ring {
+            0% {
                 transform: scale(1);
-                opacity: 1
+                opacity: .8
             }
 
-            50% {
-                transform: scale(1.4);
+            100% {
+                transform: scale(1.5);
                 opacity: 0
             }
         }
 
-        /* ── RESPONSIVE ── */
-        @media(max-width:900px) {
-
-            .about-wrap,
-            .kontak-wrap {
-                grid-template-columns: 1fr;
-                gap: 42px
+        /* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+        @media(max-width:960px) {
+            .container {
+                padding: 0 24px
             }
 
-            .vm-grid {
+            .about-grid,
+            .kontak-grid {
                 grid-template-columns: 1fr;
-                gap: 20px
+                gap: 48px
             }
 
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 36px
+                gap: 32px
             }
 
-            .about-badge {
-                left: 0;
-                bottom: -24px
+            .produk-head {
+                flex-direction: column;
+                align-items: flex-start
             }
 
-            .form-row {
-                grid-template-columns: 1fr
+            .produk-desc {
+                text-align: left;
+                max-width: 100%
+            }
+
+            .hero-stats {
+                display: none
             }
         }
 
         @media(max-width:700px) {
-            nav {
-                padding: 12px 5%
+            #nav {
+                padding: 16px 0
             }
 
-            .nav-menu {
+            .nav-links {
                 display: none;
                 position: fixed;
-                top: 73px;
+                top: 64px;
                 left: 0;
                 width: 100%;
-                background: var(--cream);
+                background: var(--dark);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 24px;
-                gap: 0;
-                box-shadow: var(--shadow-lg);
-                border-bottom: var(--border)
+                padding: 24px;
+                gap: 0
             }
 
-            .nav-menu.open {
+            .nav-links.open {
                 display: flex
             }
 
-            .nav-menu li {
-                width: 100%;
-                border-bottom: 1px solid var(--cream-dark)
-            }
-
-            .nav-menu a {
-                display: block;
+            .nav-links a {
                 padding: 13px 0;
-                font-size: .95rem
-            }
-
-            .nav-wa {
-                border-bottom: none !important;
-                display: inline-block;
-                margin-top: 8px
+                border-bottom: 1px solid rgba(255, 255, 255, .06);
+                font-size: .85rem
             }
 
             .hamburger {
                 display: flex
             }
 
-            .footer-grid {
+            .hero-title {
+                font-size: 2.8rem
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .form-row {
                 grid-template-columns: 1fr
             }
 
-            .hero-stats {
-                gap: 28px
-            }
-
-            .prod-grid {
+            .footer-grid {
                 grid-template-columns: 1fr
             }
 
@@ -1442,19 +1533,9 @@
                 grid-template-columns: 1fr 1fr
             }
 
-            .cert-grid {
-                grid-template-columns: 1fr
-            }
-        }
-
-        @media(max-width:420px) {
-            .klien-grid {
-                grid-template-columns: 1fr
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                align-items: center
+            .about-accent {
+                right: 0;
+                bottom: -20px
             }
 
             .modal-body {
@@ -1465,571 +1546,475 @@
                 padding: 24px 20px
             }
         }
-
-        /* ── FADE-IN ANIMATIONS ── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .7s ease, transform .7s ease
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0)
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- ═══════════════ NAVBAR ═══════════════ -->
-    <nav id="main-nav">
-        <div class="nav-logo">
-            <img src="assets/images/logo-pds.jpeg" alt="PT Prima Daging Segar" onerror="this.style.display='none'">
-            <div class="nav-logo-text">
-                <span>Prima Daging Segar</span>
-                <span>Distributor Protein Premium</span>
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <div class="nav-brand">
+                    <div class="nav-brand-name">Prima Daging Segar</div>
+                    <div class="nav-brand-sub">Premium Protein · B2B Distributor</div>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#tentang">Tentang</a>
+                    <a href="#produk">Produk</a>
+                    <a href="#klien">Klien</a>
+                    <a href="#kontak" class="nav-cta">Hubungi Kami</a>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
-        <ul class="nav-menu" id="nav-menu">
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#produk">Produk</a></li>
-            <li><a href="#klien">Klien</a></li>
-            <li><a href="#legalitas">Legalitas</a></li>
-            <li><a href="#kontak" class="nav-wa"><i class="fas fa-comments"></i> Hubungi Kami</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
     </nav>
 
-    <!-- ═══════════════ HERO ═══════════════ -->
+    <!-- HERO -->
     <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
         <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-certificate"></i>&nbsp;&nbsp;Certified Halal · B2B Premium Supplier
-            </div>
-            <h1 class="hero-title">
-                Mitra Terpercaya<br>Distribusi <em>Protein Premium</em><br>Halal Indonesia
-            </h1>
-            <p class="hero-subtitle">
-                PT Prima Daging Segar menyediakan solusi lengkap pengadaan poultry, daging sapi import, bebek, dan
-                seafood berkualitas tinggi untuk bisnis F&amp;B Anda — fresh, frozen, dan custom sesuai kebutuhan.
-            </p>
-            <div class="hero-btns">
-                <a href="#produk" class="btn-primary"><i class="fas fa-layer-group"></i> Lihat Katalog Produk</a>
-                <a href="https://wa.me/6282310048608?text=Halo%20Prima%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20produk%20PT%20Prima%20Daging%20Segar"
-                    target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> Chat Prima Sekarang</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-num">5+</div>
-                    <div class="hero-stat-lbl">Klien Premium</div>
+            <div class="hero-inner">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    <span>Distributor B2B Aktif · Jakarta Selatan</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">50+</div>
-                    <div class="hero-stat-lbl">Jenis Produk</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">24/7</div>
-                    <div class="hero-stat-lbl">AI Support</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">100%</div>
-                    <div class="hero-stat-lbl">Halal Certified</div>
+                <h1 class="hero-title">
+                    <em>Premium Protein</em><br>
+                    <strong>Halal.</strong> Segar.<br>Terpercaya.
+                </h1>
+                <p class="hero-sub">Solusi distribusi poultry, daging sapi import, bebek, dan seafood premium untuk
+                    bisnis F&amp;B Anda — fresh, frozen, custom. Tanpa kompromi kualitas.</p>
+                <div class="hero-actions">
+                    <a href="#produk" class="btn-primary"><i class="fas fa-layer-group"></i> Katalog Produk</a>
+                    <a href="https://wa.me/6282310048608?text=Halo+Prima%2C+saya+ingin+tahu+lebih+lanjut+tentang+produk+PT+Prima+Daging+Segar"
+                        target="_blank" class="btn-ghost"><i class="fab fa-whatsapp"></i> Chat Prima AI</a>
                 </div>
             </div>
         </div>
-        <div class="scroll-hint">
-            <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num" data-count="7">0</div>
+                <div class="hero-stat-lbl">Klien Premium</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num" data-count="50">0</div>
+                <div class="hero-stat-lbl">Jenis Produk</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">24/7</div>
+                <div class="hero-stat-lbl">AI Support</div>
+            </div>
         </div>
+        <div class="hero-scroll"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- ═══════════════ TENTANG ═══════════════ -->
+    <!-- MARQUEE -->
+    <div class="marquee-bar">
+        <div class="marquee-track" id="marquee">
+            <span class="marquee-item">Karkas Broiler Frozen</span>
+            <span class="marquee-item">Boneless Dada · BLD</span>
+            <span class="marquee-item">Prime Cut Amerika USDA</span>
+            <span class="marquee-item">Wagyu Jepang A5</span>
+            <span class="marquee-item">Australian Beef Halal</span>
+            <span class="marquee-item">Bebek Hibrida & Peking</span>
+            <span class="marquee-item">Seafood Premium</span>
+            <span class="marquee-item">Kambing & Domba</span>
+            <span class="marquee-item">Boneless Paha · BLP / BLPK</span>
+            <span class="marquee-item">Byproduct Ayam Lengkap</span>
+            <span class="marquee-item">Karkas Broiler Frozen</span>
+            <span class="marquee-item">Boneless Dada · BLD</span>
+            <span class="marquee-item">Prime Cut Amerika USDA</span>
+            <span class="marquee-item">Wagyu Jepang A5</span>
+            <span class="marquee-item">Australian Beef Halal</span>
+            <span class="marquee-item">Bebek Hibrida & Peking</span>
+            <span class="marquee-item">Seafood Premium</span>
+            <span class="marquee-item">Kambing & Domba</span>
+            <span class="marquee-item">Boneless Paha · BLP / BLPK</span>
+            <span class="marquee-item">Byproduct Ayam Lengkap</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
     <section id="tentang">
-        <div class="about-wrap">
-            <div class="about-text fade-up">
-                <span class="section-label">Tentang Perusahaan</span>
-                <h2 class="section-title">PT <span class="gold-text">Prima Daging Segar</span></h2>
-                <div class="divider"></div>
-                <p class="about-p">PT Prima Daging Segar adalah perusahaan distributor yang fokus menyediakan produk
-                    daging sapi dan ayam dalam kondisi segar maupun beku. Dengan semangat dan dedikasi tinggi, kami
-                    berkomitmen menghadirkan produk yang berkualitas, halal, dan terjangkau.</p>
-                <p class="about-p">Sebagai perusahaan <strong>B2B Trading</strong>, kami melayani kebutuhan restoran,
-                    hotel, katering, supermarket, hingga industri pengolahan makanan di seluruh Indonesia. Dengan
-                    jaringan supplier yang luas, kami siap melakukan sourcing dan matching produk sesuai spesifikasi
-                    unik bisnis Anda.</p>
-                <div class="about-features">
-                    <div class="af">
-                        <div class="af-icon"><i class="fas fa-star-and-crescent"></i></div>
-                        <div>
-                            <div class="af-title">Halal & Berkualitas</div>
-                            <div class="af-desc">Semua produk terjamin halal dan melewati quality control ketat</div>
-                        </div>
-                    </div>
-                    <div class="af">
-                        <div class="af-icon"><i class="fas fa-handshake"></i></div>
-                        <div>
-                            <div class="af-title">B2B Trading</div>
-                            <div class="af-desc">Spesialis supply chain untuk bisnis F&B skala restoran hingga industri
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text-wrap reveal">
+                    <div class="section-eyebrow"><span>Tentang Perusahaan</span></div>
+                    <h2 class="about-title">PT Prima<br><em>Daging Segar</em></h2>
+                    <p>Perusahaan distributor B2B yang fokus menyediakan produk daging sapi dan ayam dalam kondisi segar
+                        maupun beku. Dengan semangat dan dedikasi tinggi, kami berkomitmen menghadirkan produk yang
+                        berkualitas, halal, dan terjangkau.</p>
+                    <p>Sebagai perusahaan <strong>B2B Trading</strong>, kami melayani restoran, hotel, katering,
+                        supermarket, hingga industri pengolahan makanan di seluruh Indonesia. Dengan jaringan supplier
+                        luas, kami sourcing dan matching produk sesuai spesifikasi unik bisnis Anda.</p>
+                    <div class="about-pillars">
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-star-and-crescent"></i></div>
+                            <div>
+                                <div class="pillar-title">Halal Certified</div>
+                                <div class="pillar-desc">Semua produk terjamin halal, quality control ketat</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="af">
-                        <div class="af-icon"><i class="fas fa-search"></i></div>
-                        <div>
-                            <div class="af-title">Supplier Sourcing</div>
-                            <div class="af-desc">Kami sourcing & matching produk dari supplier terpercaya lokal & impor
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-handshake"></i></div>
+                            <div>
+                                <div class="pillar-title">B2B Specialist</div>
+                                <div class="pillar-desc">Supply chain restoran hingga industri F&B skala besar</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="af">
-                        <div class="af-icon"><i class="fas fa-snowflake"></i></div>
-                        <div>
-                            <div class="af-title">Fresh & Frozen</div>
-                            <div class="af-desc">Tersedia dalam kondisi segar dan beku, tidak menerima produk hidup
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-search"></i></div>
+                            <div>
+                                <div class="pillar-title">Supplier Sourcing</div>
+                                <div class="pillar-desc">Matching produk dari supplier lokal & internasional</div>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-snowflake"></i></div>
+                            <div>
+                                <div class="pillar-title">Fresh & Frozen</div>
+                                <div class="pillar-desc">Kondisi segar dan beku, tidak menerima produk hidup</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="about-img-wrap fade-up">
-                <img src="assets/images/team.jpeg" alt="Tim PT Prima Daging Segar"
-                    onerror="this.style.background='var(--cream-dark)';this.alt='Tim PDS'">
-                <div class="about-badge">
-                    <span class="about-badge-num">2025</span>
-                    <span class="about-badge-txt">Terdaftar Resmi · Jakarta Selatan</span>
+                <div class="about-visual reveal">
+                    <div class="about-img-frame">
+                        <img src="assets/images/team.jpeg" alt="Tim PT Prima Daging Segar"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="about-img-placeholder" style="display:none">Tim PDS</div>
+                        <div class="about-img-label">Tim PT Prima Daging Segar</div>
+                    </div>
+                    <div class="about-accent">
+                        <span class="about-accent-num">2025</span>
+                        <span class="about-accent-txt">Terdaftar Resmi · Jakarta Selatan</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ VISI MISI ═══════════════ -->
-    <section id="visi-misi">
-        <span class="section-label">Fondasi Kami</span>
-        <h2 class="section-title">Visi &amp; Misi</h2>
-        <div class="divider"></div>
-        <p class="vm-intro">Kami dibangun di atas nilai-nilai integritas, profesionalisme, dan komitmen terhadap
-            kualitas produk halal terbaik untuk mitra bisnis Indonesia.</p>
-        <div class="vm-grid">
-            <div class="vm-card fade-up">
-                <div class="vm-icon"><i class="fas fa-eye"></i></div>
-                <h3>Visi</h3>
-                <p>Menjadi perusahaan pilihan utama di Indonesia dalam menyediakan produk halal yang inovatif, segar,
-                    dan berkualitas tinggi.</p>
-            </div>
-            <div class="vm-card fade-up">
-                <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
-                <h3>Misi</h3>
-                <ul>
-                    <li>Membangun perusahaan yang terintegrasi, efisien, dan menguntungkan</li>
-                    <li>Menyediakan produk halal, sehat, dan berkualitas tinggi untuk mitra bisnis</li>
-                    <li>Mendukung pertumbuhan mitra dengan layanan profesional dan terpercaya</li>
-                    <li>Menjadi perusahaan yang unggul, berintegritas, dan dapat diandalkan</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════ PRODUK ═══════════════ -->
+    <!-- PRODUCTS -->
     <section id="produk">
-        <div class="prod-header fade-up">
-            <span class="section-label">Katalog Produk</span>
-            <h2 class="section-title">Semua <span class="gold-text">Protein Premium</span> Anda di Sini</h2>
-            <div class="divider" style="margin:0 auto 18px"></div>
-            <p>Sebagai perusahaan trading, kami siap memenuhi semua kebutuhan protein Anda melalui sourcing dan matching
-                supplier terpercaya. Pilih produk, isi form, tim kami segera follow up.</p>
-        </div>
-        <div class="prod-tabs">
-            <button class="prod-tab active" data-cat="all">Semua Produk</button>
-            <button class="prod-tab" data-cat="poultry">🐔 Ayam & Poultry</button>
-            <button class="prod-tab" data-cat="beef">🥩 Daging Sapi</button>
-            <button class="prod-tab" data-cat="duck">🦆 Bebek</button>
-            <button class="prod-tab" data-cat="seafood">🦐 Seafood</button>
-            <button class="prod-tab" data-cat="other">🐑 Lainnya</button>
-        </div>
-        <div class="prod-grid" id="prod-grid">
-            <!-- Diisi oleh JavaScript -->
+        <div class="container">
+            <div class="produk-head reveal">
+                <div>
+                    <div class="section-eyebrow" style="--red:#C41E1E"><span style="color:var(--gold)">Katalog
+                            Produk</span></div>
+                    <h2 class="produk-title">Semua <em>Protein Premium</em><br>dalam Satu Mitra</h2>
+                </div>
+                <p class="produk-desc">Dari ayam segar hingga Wagyu A5, kami sourcing semua yang bisnis Anda butuhkan.
+                    Pilih produk, kirim request — tim kami follow up dalam 2 jam.</p>
+            </div>
+            <div class="prod-tabs" id="prodTabs">
+                <button class="prod-tab active" data-cat="all">Semua</button>
+                <button class="prod-tab" data-cat="poultry">Ayam & Poultry</button>
+                <button class="prod-tab" data-cat="beef">Daging Sapi</button>
+                <button class="prod-tab" data-cat="duck">Bebek</button>
+                <button class="prod-tab" data-cat="seafood">Seafood</button>
+                <button class="prod-tab" data-cat="other">Lainnya</button>
+            </div>
+            <div class="prod-grid" id="prodGrid"></div>
         </div>
     </section>
 
-    <!-- ═══════════════ KLIEN ═══════════════ -->
+    <!-- CLIENTS -->
     <section id="klien">
-        <div class="klien-header fade-up">
-            <span class="section-label">Portfolio Klien</span>
-            <h2 class="section-title">Dipercaya oleh <span class="gold-text">Restoran Premium</span></h2>
-            <div class="divider" style="margin:0 auto 18px"></div>
-            <p>Kami bangga menjadi mitra supply protein untuk jaringan restoran internasional dan premium di Indonesia.
-                Kualitas produk dan keandalan pengiriman kami telah teruji.</p>
-        </div>
-        <div class="klien-grid" id="klien-grid">
-            <!-- Diisi oleh JavaScript -->
+        <div class="container">
+            <div class="klien-head reveal">
+                <div class="section-eyebrow" style="justify-content:center"><span>Portfolio Klien</span></div>
+                <h2 class="klien-title">Dipercaya <em>Restoran</em><br>Kelas Dunia</h2>
+                <p class="klien-desc">Kami bangga menjadi mitra supply protein untuk jaringan restoran internasional dan
+                    premium di Indonesia. Kualitas dan keandalan kami telah teruji.</p>
+            </div>
+            <div class="klien-grid" id="klienGrid"></div>
         </div>
     </section>
 
-    <!-- ═══════════════ LEGALITAS ═══════════════ -->
-    <section id="legalitas">
-        <div class="cert-header fade-up">
-            <span class="section-label">Legalitas & Kepercayaan</span>
-            <h2 class="section-title">Dokumen <span class="gold-text">Resmi & Sah</span></h2>
-            <div class="divider" style="margin:0 auto 18px"></div>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card fade-up">
-                <div class="cert-icon-wrap"><i class="fas fa-id-card"></i></div>
-                <h3>NPWP Perusahaan</h3>
-                <p>Nomor Pokok Wajib Pajak resmi terdaftar pada Kantor Pelayanan Pajak Pratama Jakarta Kebayoran Baru
-                    Dua.</p>
-                <p class="cert-npwp">NPWP: 10.00000.060.2-502.000</p>
-                <a href="https://ocptcnqtrbbwpwfxioim.supabase.co/storage/v1/object/public/certs/NPWP.pdf"
-                    target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i> Lihat
-                    Dokumen</a>
-            </div>
-            <div class="cert-card fade-up">
-                <div class="cert-icon-wrap"><i class="fas fa-file-contract"></i></div>
-                <h3>Surat Keterangan Terdaftar</h3>
-                <p>SK Pajak resmi dari Direktorat Jenderal Pajak Kementerian Keuangan RI, terdaftar sejak 2 Oktober
-                    2025.</p>
-                <p class="cert-npwp">No: S-00674/SKT-WP-CT/KPP.3002/2025</p>
-                <a href="https://ocptcnqtrbbwpwfxioim.supabase.co/storage/v1/object/public/certs/SK%20PAJAK.pdfs"
-                    target="_blank" class="cert-link"><i class="fas fa-file-pdf"></i>
-                    Lihat Dokumen</a>
-            </div>
-            <div class="cert-card fade-up">
-                <div class="cert-icon-wrap"><i class="fas fa-building"></i></div>
-                <h3>Badan Hukum PT</h3>
-                <p>PT Prima Daging Segar terdaftar sebagai Wajib Pajak Badan dengan kewajiban PPh, PPN, dan pelaporan
-                    SPT sesuai peraturan perundang-undangan.</p>
-                <p class="cert-npwp">Jenis: Badan Usaha · Jakarta Selatan</p>
-                <a href="https://wa.me/6282310048608?text=Halo%2C%20saya%20ingin%20meminta%20dokumen%20legalitas%20PT%20Prima%20Daging%20Segar"
-                    target="_blank" class="cert-link"><i class="fab fa-whatsapp"></i> Minta Dokumen Lengkap</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════ KONTAK ═══════════════ -->
+    <!-- CONTACT -->
     <section id="kontak">
-        <div class="kontak-wrap">
-            <div class="kontak-info fade-up">
-                <span class="section-label">Hubungi Kami</span>
-                <h2 class="section-title">Siap <span class="gold-text">Melayani</span> Bisnis Anda</h2>
-                <div class="divider"></div>
-                <p>Sampaikan kebutuhan produk Anda dan tim kami akan membantu menemukan solusi terbaik. AI Prima siap
-                    menerima pesan 24/7, dan admin asli kami akan follow up dalam 2 jam jam kerja.</p>
-                <div class="ci-items">
-                    <div class="ci">
-                        <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <span class="ci-label">Alamat Kantor</span>
-                            <span class="ci-val">Jl. Radio IV No.1, RT.1/RW.4, Kramat Pela,<br>Kebayoran Baru, Jakarta
-                                Selatan 12130</span>
+        <div class="container">
+            <div class="kontak-inner">
+                <div class="kontak-grid">
+                    <div class="reveal">
+                        <div class="section-eyebrow"><span style="color:var(--gold)">Hubungi Kami</span></div>
+                        <h2 class="kontak-info-title">Siap <em>Melayani</em><br>Bisnis Anda</h2>
+                        <p class="kontak-info-desc">AI Prima siap menerima pesan 24/7. Admin kami akan follow up dalam 2
+                            jam di jam kerja. Sampaikan kebutuhan Anda sekarang.</p>
+                        <div class="ci-list">
+                            <div class="ci">
+                                <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div><span class="ci-label">Alamat</span><span class="ci-val">Jl. Radio IV No.1,
+                                        RT.1/RW.4,<br>Kramat Pela, Kebayoran Baru,<br>Jakarta Selatan 12130</span></div>
+                            </div>
+                            <div class="ci">
+                                <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div><span class="ci-label">WhatsApp & AI Prima</span><span class="ci-val"><a
+                                            href="https://wa.me/6282310048608">+62 823-1004-8608</a></span></div>
+                            </div>
+                            <div class="ci">
+                                <div class="ci-icon"><i class="fas fa-phone"></i></div>
+                                <div><span class="ci-label">Telepon Kantor</span><span class="ci-val"><a
+                                            href="tel:02172553335">(021) 7255335</a></span></div>
+                            </div>
+                            <div class="ci">
+                                <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                                <div><span class="ci-label">Email</span><span class="ci-val"><a
+                                            href="mailto:primadagingsegar@gmail.com">primadagingsegar@gmail.com</a></span>
+                                </div>
+                            </div>
+                            <div class="ci">
+                                <div class="ci-icon"><i class="fas fa-clock"></i></div>
+                                <div><span class="ci-label">AI Support</span><span class="ci-val">24 Jam / 7
+                                        Hari<br><small style="color:var(--gold);font-size:.75rem">Admin follow up dalam
+                                            2 jam kerja</small></span></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="ci">
-                        <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
-                        <div>
-                            <span class="ci-label">WhatsApp (AI + Admin)</span>
-                            <span class="ci-val"><a href="https://wa.me/6282310048608">+62 823-1004-8608</a></span>
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <div class="ci-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <span class="ci-label">Telepon Kantor</span>
-                            <span class="ci-val"><a href="tel:02172553335">(021) 7255335</a></span>
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <span class="ci-label">Email</span>
-                            <span class="ci-val"><a
-                                    href="mailto:primadagingsegar@gmail.com">primadagingsegar@gmail.com</a></span>
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <div class="ci-icon"><i class="fas fa-clock"></i></div>
-                        <div>
-                            <span class="ci-label">Jam Operasional AI</span>
-                            <span class="ci-val">24 Jam / 7 Hari<br><small
-                                    style="color:var(--gold);font-size:.8rem">Admin follow up dalam 2 jam di jam
-                                    kerja</small></span>
+                    <div class="reveal">
+                        <div class="kontak-form-box">
+                            <div class="kontak-form-title">Kirim Permintaan</div>
+                            <div class="kontak-form-sub">Isi form atau langsung chat WhatsApp untuk respons lebih cepat.
+                            </div>
+                            <form id="contactForm" novalidate>
+                                <div class="form-row">
+                                    <div class="fg"><label>Nama Lengkap *</label><input type="text" id="c-nama"
+                                            placeholder="Nama Anda" required></div>
+                                    <div class="fg"><label>Nama Perusahaan</label><input type="text" id="c-perusahaan"
+                                            placeholder="PT / Restoran..."></div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="fg"><label>WhatsApp Aktif *</label><input type="tel" id="c-telepon"
+                                            placeholder="08xx-xxxx-xxxx" required></div>
+                                    <div class="fg"><label>Email</label><input type="email" id="c-email"
+                                            placeholder="email@perusahaan.com"></div>
+                                </div>
+                                <div class="fg"><label>Kebutuhan / Pesan *</label><textarea id="c-pesan" rows="4"
+                                        placeholder="Contoh: Saya butuh BLD 2 ton/bulan untuk restoran di Jakarta..."
+                                        required></textarea></div>
+                                <button type="submit" class="btn-submit" id="contactSubmit"><i
+                                        class="fas fa-paper-plane"></i> Kirim Permintaan</button>
+                                <div class="form-msg ok" id="contactOk">✅ Terkirim! Tim Prima akan menghubungi Anda
+                                    dalam 2 jam.</div>
+                                <div class="form-msg err" id="contactErr">❌ Gagal terkirim. Silakan coba lagi atau
+                                    hubungi via WhatsApp.</div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="kontak-form-card fade-up">
-                <h3>Kirim Pesan / Permintaan</h3>
-                <p>Isi form di bawah atau langsung chat via WhatsApp untuk respons lebih cepat.</p>
-                <form id="contact-form" novalidate>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="c-nama">Nama Lengkap *</label>
-                            <input type="text" id="c-nama" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="c-perusahaan">Nama Perusahaan</label>
-                            <input type="text" id="c-perusahaan" placeholder="PT / CV / Restoran...">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="c-telepon">WhatsApp Aktif *</label>
-                            <input type="tel" id="c-telepon" placeholder="08xx-xxxx-xxxx" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="c-email">Email</label>
-                            <input type="email" id="c-email" placeholder="email@perusahaan.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="c-pesan">Kebutuhan / Pesan *</label>
-                        <textarea id="c-pesan" rows="4"
-                            placeholder="Contoh: Saya membutuhkan BLD 2 ton/bulan untuk restoran kami di Jakarta..."
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit" id="contact-submit">
-                        <i class="fas fa-paper-plane"></i>&nbsp; Kirim Permintaan
-                    </button>
-                    <div class="msg-success" id="contact-success">
-                        ✅ Permintaan Anda berhasil terkirim! Tim Prima akan menghubungi Anda dalam 2 jam.
-                    </div>
-                    <div class="msg-error" id="contact-error">
-                        ❌ Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung via WhatsApp.
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
 
-    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="assets/images/logo-pds.jpeg" alt="PT Prima Daging Segar" onerror="this.style.display='none'">
-                <p>Perusahaan distributor B2B protein premium halal yang berkomitmen menghadirkan produk berkualitas
-                    tinggi untuk mitra bisnis di seluruh Indonesia.</p>
-                <div class="halal-badge">✦ HALAL CERTIFIED ✦</div>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-name">Prima Daging Segar</div>
+                    <div class="footer-brand-sub">B2B Premium Protein Distributor</div>
+                    <p class="footer-brand-desc">Mitra terpercaya distribusi protein halal premium — poultry, daging
+                        sapi import, bebek, dan seafood untuk bisnis F&B Indonesia.</p>
+                    <div class="footer-halal"><i class="fas fa-check-circle"></i> 100% Halal Certified</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#produk">Katalog Produk</a></li>
+                        <li><a href="#klien">Portfolio Klien</a></li>
+                        <li><a href="#kontak">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk Utama</h4>
+                    <ul>
+                        <li><a href="#produk">Karkas Broiler Frozen</a></li>
+                        <li><a href="#produk">Boneless Dada (BLD)</a></li>
+                        <li><a href="#produk">Boneless Paha (BLP)</a></li>
+                        <li><a href="#produk">Prime Cut Amerika</a></li>
+                        <li><a href="#produk">Wagyu Jepang</a></li>
+                        <li><a href="#produk">Bebek Peking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="https://wa.me/6282310048608"><i class="fab fa-whatsapp"></i> +62 823-1004-8608</a>
+                        </li>
+                        <li><a href="tel:02172553335"><i class="fas fa-phone"></i> (021) 7255335</a></li>
+                        <li><a href="mailto:primadagingsegar@gmail.com"><i class="fas fa-envelope"></i>
+                                primadagingsegar@gmail.com</a></li>
+                        <li><a href="#kontak"><i class="fas fa-map-marker-alt"></i> Jakarta Selatan 12130</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="#tentang">Tentang Kami</a></li>
-                    <li><a href="#visi-misi">Visi &amp; Misi</a></li>
-                    <li><a href="#produk">Katalog Produk</a></li>
-                    <li><a href="#klien">Klien Kami</a></li>
-                    <li><a href="#legalitas">Legalitas</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2025 PT Prima Daging Segar — NPWP: 10.00000.060.2-502.000 · Terdaftar Resmi
+                    Ditjen Pajak RI</span>
+                <span class="footer-copy">Made with ❤ for PT Prima Daging Segar</span>
             </div>
-            <div class="footer-col">
-                <h4>Produk Unggulan</h4>
-                <ul>
-                    <li><a href="#produk">Karkas Broiler Frozen</a></li>
-                    <li><a href="#produk">Boneless Dada (BLD)</a></li>
-                    <li><a href="#produk">Boneless Paha (BLP)</a></li>
-                    <li><a href="#produk">Prime Cut Amerika</a></li>
-                    <li><a href="#produk">Wagyu Jepang</a></li>
-                    <li><a href="#produk">Bebek Peking</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Kontak</h4>
-                <ul>
-                    <li><a href="https://wa.me/6282310048608"><i class="fab fa-whatsapp"></i> +62 823-1004-8608</a></li>
-                    <li><a href="tel:02172553335"><i class="fas fa-phone"></i> (021) 7255335</a></li>
-                    <li><a href="mailto:primadagingsegar@gmail.com"><i class="fas fa-envelope"></i>
-                            primadagingsegar@gmail.com</a></li>
-                    <li><a href="#kontak"><i class="fas fa-map-marker-alt"></i> Jakarta Selatan, 12130</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 PT Prima Daging Segar — NPWP: 10.00000.060.2-502.000 · Terdaftar Resmi Direktorat Jenderal Pajak
-                RI</p>
         </div>
     </footer>
 
-    <!-- ═══════════════ ORDER MODAL ═══════════════ -->
-    <div class="modal-overlay" id="order-modal">
+    <!-- ORDER MODAL -->
+    <div class="modal-overlay" id="orderModal">
         <div class="modal">
             <div class="modal-head">
                 <div class="modal-head-left">
-                    <h2>📋 Form Permintaan Produk</h2>
-                    <p>Isi detail kebutuhan Anda, tim kami segera follow up</p>
+                    <h2>Request / Order Produk</h2>
+                    <p>Isi detail — tim kami follow up dalam 2 jam</p>
                 </div>
-                <button class="modal-close" id="modal-close-btn" onclick="closeModal()">✕</button>
+                <button class="modal-close" onclick="closeModal()">✕</button>
             </div>
             <div class="modal-body">
-                <div class="req-note">
-                    💡 <strong>Tidak ada harga minimum order.</strong> Isi form sedetail mungkin agar tim kami dapat
-                    memberikan penawaran terbaik untuk Anda.
-                </div>
-                <form id="order-form" novalidate>
+                <div class="modal-note">💡 Tidak ada minimum order. Isi sedetail mungkin untuk penawaran terbaik dari
+                    tim kami.</div>
+                <form id="orderForm" novalidate>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="o-nama">Nama Lengkap *</label>
-                            <input type="text" id="o-nama" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="o-perusahaan">Nama Perusahaan *</label>
-                            <input type="text" id="o-perusahaan" placeholder="PT / Restoran / Hotel..." required>
-                        </div>
+                        <div class="fg"><label>Nama Lengkap *</label><input type="text" id="o-nama"
+                                placeholder="Nama Anda" required></div>
+                        <div class="fg"><label>Nama Perusahaan *</label><input type="text" id="o-perusahaan"
+                                placeholder="PT / Restoran..." required></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="o-telepon">WhatsApp Aktif *</label>
-                            <input type="tel" id="o-telepon" placeholder="08xx-xxxx-xxxx" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="o-email">Email Aktif</label>
-                            <input type="email" id="o-email" placeholder="email@perusahaan.com">
-                        </div>
+                        <div class="fg"><label>WhatsApp Aktif *</label><input type="tel" id="o-telepon"
+                                placeholder="08xx-xxxx-xxxx" required></div>
+                        <div class="fg"><label>Email</label><input type="email" id="o-email"
+                                placeholder="email@perusahaan.com"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="o-produk">Produk yang Diinginkan *</label>
-                        <input type="text" id="o-produk" placeholder="Contoh: Karkas Broiler Frozen 0.7-1.0 kg"
-                            required>
-                    </div>
+                    <div class="fg"><label>Produk yang Diinginkan *</label><input type="text" id="o-produk"
+                            placeholder="Contoh: Karkas Broiler Frozen 0.7–1.0 kg" required></div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="o-kapasitas">Volume per Bulan *</label>
-                            <input type="text" id="o-kapasitas" placeholder="Contoh: 10 ton / 500 kg" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="o-pembayaran">Metode Pembayaran</label>
+                        <div class="fg"><label>Volume per Bulan *</label><input type="text" id="o-kapasitas"
+                                placeholder="Contoh: 10 ton / 500 kg" required></div>
+                        <div class="fg"><label>Metode Pembayaran</label>
                             <select id="o-pembayaran">
                                 <option value="">-- Pilih --</option>
-                                <option value="Transfer Tunai">Transfer Tunai (COD)</option>
-                                <option value="Transfer 7 Hari">Tempo 7 Hari</option>
-                                <option value="Transfer 14 Hari">Tempo 14 Hari</option>
-                                <option value="Transfer 30 Hari">Tempo 30 Hari</option>
-                                <option value="Diskusi">Perlu Diskusi</option>
+                                <option>Transfer Tunai (COD)</option>
+                                <option>Tempo 7 Hari</option>
+                                <option>Tempo 14 Hari</option>
+                                <option>Tempo 30 Hari</option>
+                                <option>Perlu Diskusi</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="o-kota">Kota / Alamat Pengiriman *</label>
-                        <input type="text" id="o-kota" placeholder="Kota atau alamat lengkap pengiriman" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="o-catatan">Spesifikasi Tambahan</label>
-                        <textarea id="o-catatan" rows="3"
-                            placeholder="Ukuran spesifik, kondisi (fresh/frozen), sertifikasi khusus, jadwal pengiriman, dll..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit" id="order-submit">
-                        <i class="fas fa-paper-plane"></i>&nbsp; Kirim Permintaan
-                    </button>
-                    <div class="msg-success" id="order-success">
-                        ✅ Permintaan terkirim! AI Prima & admin kami akan menghubungi Anda segera via WhatsApp.
-                    </div>
-                    <div class="msg-error" id="order-error">
-                        ❌ Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung.
-                    </div>
+                    <div class="fg"><label>Kota / Alamat Pengiriman *</label><input type="text" id="o-kota"
+                            placeholder="Kota atau alamat pengiriman" required></div>
+                    <div class="fg"><label>Spesifikasi Tambahan</label><textarea id="o-catatan" rows="3"
+                            placeholder="Ukuran, kondisi fresh/frozen, sertifikasi, jadwal, dll..."></textarea></div>
+                    <button type="submit" class="btn-submit" id="orderSubmit"><i class="fas fa-paper-plane"></i> Kirim
+                        Permintaan</button>
+                    <div class="form-msg ok" id="orderOk">✅ Permintaan terkirim! Tim & AI Prima akan menghubungi Anda
+                        segera via WhatsApp.</div>
+                    <div class="form-msg err" id="orderErr">❌ Gagal terkirim. Silakan hubungi via WhatsApp.</div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- ═══════════════ WHATSAPP FLOAT ═══════════════ -->
+    <!-- WA FLOAT -->
     <a class="wa-float"
-        href="https://wa.me/6282310048608?text=Halo%20Prima%2C%20saya%20ingin%20bertanya%20tentang%20produk%20PT%20Prima%20Daging%20Segar"
+        href="https://wa.me/6282310048608?text=Halo+Prima%2C+saya+ingin+bertanya+tentang+produk+PT+Prima+Daging+Segar"
         target="_blank" rel="noopener" title="Chat WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
     <script>
-        // ══════════════════════════════════════
-        // CONFIG — GANTI DENGAN DATA MILIKMU
-        // ══════════════════════════════════════
-        const SUPABASE_URL = 'https://ocptcnqtrbbwpwfxioim.supabase.co';      // Contoh: https://xyzxyzxyz.supabase.co
-        const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jcHRjbnF0cmJid3B3Znhpb2ltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMjk1NTYsImV4cCI6MjA5NTgwNTU1Nn0.bllSCX2Nk673MWCNp3EVuFyavRvHjbN4XP83w9DNM1Q'; // Dari: Project Settings > API > anon key
-        const WA_ADMIN = '6282310048608';
+        /* ══════════════════════════════════
+           CONFIG — GANTI SETELAH SETUP SUPABASE
+        ══════════════════════════════════ */
+        const SB_URL = 'YOUR_SUPABASE_URL';
+        const SB_ANON = 'YOUR_SUPABASE_ANON_KEY';
+        const WA_NUM = '6282310048608';
 
-        // ── Init Supabase ──
         const { createClient } = supabase;
         let db = null;
-        if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-            db = createClient(SUPABASE_URL, SUPABASE_ANON);
-        }
+        if (SB_URL !== 'YOUR_SUPABASE_URL') db = createClient(SB_URL, SB_ANON);
 
-        // ══════════════════════════════════════
-        // DATA PRODUK
-        // ══════════════════════════════════════
+        /* ══════════════════════════════════
+           PRODUCTS DATA
+        ══════════════════════════════════ */
         const PRODUCTS = [
-            { cat: 'poultry', icon: '🐔', name: 'Karkas Broiler Frozen', sub: 'Semua Ukuran 0.7 – 1.8 kg', tags: ['Frozen', 'Fresh', 'Terlaris'], desc: 'Karkas ayam broiler segar/beku berkualitas tinggi, tersedia semua ukuran. Cocok untuk restoran, hotel, dan katering skala besar.', hot: true },
-            { cat: 'poultry', icon: '🍗', name: 'Boneless Dada (BLD)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless', 'Terlaris'], desc: 'Dada ayam tanpa tulang premium. Pilihan #1 restoran dan hotel bintang. Tersedia dalam kemasan custom.', hot: true },
-            { cat: 'poultry', icon: '🍖', name: 'Boneless Paha (BLP)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless', 'Populer'], desc: 'Paha ayam tanpa tulang, lembut dan berkualitas tinggi untuk berbagai kebutuhan menu kuliner premium.', hot: true },
-            { cat: 'poultry', icon: '🍖', name: 'Boneless Paha Kulit (BLPK)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless'], desc: 'Paha ayam tanpa tulang dengan kulit terjaga, ideal untuk menu panggang dan goreng berkualitas tinggi.', hot: false },
-            { cat: 'poultry', icon: '🐓', name: 'Karkas Custom & Boneless Custom', sub: 'Sesuai Spesifikasi Buyer', tags: ['Custom', 'B2B'], desc: 'Potongan custom sesuai permintaan Anda: ukuran, kondisi, kemasan. Kami sourcing dari supplier terpercaya.', hot: false },
-            { cat: 'poultry', icon: '🐔', name: 'Byproduct Ayam', sub: 'Ceker, Ati, Kepala, Kulit, Usus', tags: ['Byproduct', 'Fresh', 'Frozen'], desc: 'Lengkap: ceker, ati ampela, kepala, kulit, usus, kerongkongan, dan pejantan. Semua fresh atau frozen.', hot: false },
-            { cat: 'beef', icon: '🥩', name: 'Prime Cut Amerika (USDA)', sub: 'Ribeye · Striploin · Tenderloin', tags: ['Import', 'USDA', 'Premium', 'Populer'], desc: 'Daging sapi USDA Choice/Prime grade dari Amerika. Pilihan utama steakhouse dan fine dining premium.', hot: true },
-            { cat: 'beef', icon: '🥩', name: 'Wagyu Jepang', sub: 'Grade A4 / A5 · High Marble Score', tags: ['Import', 'Wagyu', 'Eksklusif'], desc: 'Wagyu otentik Jepang dengan marbling sempurna. Tersedia A4 dan A5 untuk pengalaman kuliner terbaik.', hot: true },
-            { cat: 'beef', icon: '🥩', name: 'Australian Beef (Halal)', sub: 'Chuck Roll · Short Rib · Striploin', tags: ['Import', 'Halal', 'Australia', 'Populer'], desc: 'Daging sapi Australia bersertifikat Halal, kualitas konsisten ideal untuk shabu-shabu, yakiniku, dan fine dining.', hot: false },
-            { cat: 'beef', icon: '🥩', name: 'Daging Sapi Import Lainnya', sub: 'Semua Potongan & Spesifikasi', tags: ['Import', 'Custom', 'B2B'], desc: 'Tersedia semua jenis potongan sapi impor sesuai permintaan. Sourcing dari supplier internasional terpercaya.', hot: false },
-            { cat: 'duck', icon: '🦆', name: 'Bebek Hibrida', sub: 'Fresh & Frozen · Semua Potongan', tags: ['Fresh', 'Frozen', 'Lokal'], desc: 'Bebek hibrida berkualitas premium untuk restoran bebek, katering, dan industri pengolahan makanan.', hot: false },
-            { cat: 'duck', icon: '🦆', name: 'Bebek Peking', sub: 'Fresh & Frozen · Premium', tags: ['Fresh', 'Frozen', 'Premium'], desc: 'Bebek Peking premium untuk restoran Chinese food, shabu-shabu, dan menu eksklusif lainnya.', hot: false },
-            { cat: 'seafood', icon: '🦐', name: 'Seafood Premium', sub: 'Ikan · Udang · Cumi & Lainnya', tags: ['Fresh', 'Frozen', 'Sourcing'], desc: 'Berbagai komoditas seafood segar dan beku. Kami lakukan sourcing & matching dari supplier terpercaya sesuai kebutuhan.', hot: false },
-            { cat: 'other', icon: '🐑', name: 'Kambing & Domba', sub: 'Karkas & Potongan · Fresh/Frozen', tags: ['Fresh', 'Frozen', 'Halal'], desc: 'Karkas kambing dan domba halal berkualitas untuk kebutuhan restoran, katering, dan industri pengolahan.', hot: false },
-            { cat: 'other', icon: '🐃', name: 'Kerbau', sub: 'Daging Segar & Beku', tags: ['Fresh', 'Frozen', 'Halal'], desc: 'Daging kerbau halal berkualitas tersedia dalam kondisi segar dan beku sesuai kebutuhan bisnis Anda.', hot: false },
+            { cat: 'poultry', hot: true, name: 'Karkas Broiler Frozen', sub: 'Semua Ukuran 0.7 – 1.8 kg', tags: ['Frozen', 'Fresh', 'Terlaris'], desc: 'Karkas ayam broiler berkualitas, tersedia semua ukuran. Cocok untuk restoran, hotel, dan katering skala besar.', img: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80&fit=crop' },
+            { cat: 'poultry', hot: true, name: 'Boneless Dada (BLD)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless', 'Terlaris'], desc: 'Dada ayam tanpa tulang premium. Pilihan #1 restoran bintang dan hotel. Kemasan custom tersedia.', img: 'https://images.unsplash.com/photo-1604503468506-a8da13d11bea?w=800&q=80&fit=crop' },
+            { cat: 'poultry', hot: true, name: 'Boneless Paha (BLP)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless', 'Populer'], desc: 'Paha ayam tanpa tulang, lembut dan berkualitas tinggi untuk berbagai kebutuhan menu kuliner premium.', img: 'https://images.unsplash.com/photo-1501200291289-c5a76c232e5f?w=800&q=80&fit=crop' },
+            { cat: 'poultry', hot: false, name: 'Boneless Paha Kulit (BLPK)', sub: 'Fresh & Frozen per kg', tags: ['Frozen', 'Fresh', 'Boneless'], desc: 'Paha ayam tanpa tulang dengan kulit terjaga. Ideal untuk menu panggang dan goreng berkualitas tinggi.', img: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c1?w=800&q=80&fit=crop' },
+            { cat: 'poultry', hot: false, name: 'Custom & Boneless Custom', sub: 'Sesuai Spesifikasi Buyer', tags: ['Custom', 'B2B'], desc: 'Potongan custom sesuai permintaan Anda — ukuran, kondisi, kemasan. Kami sourcing dari supplier terpercaya.', img: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=800&q=80&fit=crop' },
+            { cat: 'poultry', hot: false, name: 'Byproduct Ayam', sub: 'Ceker, Ati, Kepala, Kulit, Usus', tags: ['Byproduct', 'Fresh', 'Frozen'], desc: 'Lengkap: ceker, ati ampela, kepala, kulit, usus, kerongkongan, dan pejantan. Fresh atau frozen.', img: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80&fit=crop&sat=-50' },
+            { cat: 'beef', hot: true, name: 'Prime Cut Amerika (USDA)', sub: 'Ribeye · Striploin · Tenderloin', tags: ['Import', 'USDA', 'Premium', 'Populer'], desc: 'Daging sapi USDA Choice/Prime grade. Pilihan utama steakhouse dan fine dining premium.', img: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=80&fit=crop' },
+            { cat: 'beef', hot: true, name: 'Wagyu Jepang', sub: 'Grade A4 / A5 · High Marbling', tags: ['Import', 'Wagyu', 'Eksklusif'], desc: 'Wagyu otentik Jepang dengan marbling sempurna. A4 dan A5 tersedia untuk pengalaman kuliner terbaik.', img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=800&q=80&fit=crop' },
+            { cat: 'beef', hot: false, name: 'Australian Beef (Halal)', sub: 'Chuck Roll · Short Rib · Striploin', tags: ['Import', 'Halal', 'Australia'], desc: 'Daging sapi Australia bersertifikat Halal. Kualitas konsisten, ideal untuk shabu-shabu dan yakiniku.', img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80&fit=crop' },
+            { cat: 'beef', hot: false, name: 'Daging Sapi Import Lainnya', sub: 'Semua Potongan & Spesifikasi', tags: ['Import', 'Custom', 'B2B'], desc: 'Semua jenis potongan sapi impor sesuai permintaan. Sourcing dari supplier internasional terpercaya.', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&fit=crop' },
+            { cat: 'duck', hot: false, name: 'Bebek Hibrida', sub: 'Fresh & Frozen · Semua Potongan', tags: ['Fresh', 'Frozen', 'Lokal'], desc: 'Bebek hibrida berkualitas premium untuk restoran bebek, katering, dan industri pengolahan.', img: 'https://images.unsplash.com/photo-1609501676544-1a36fccf9aba?w=800&q=80&fit=crop' },
+            { cat: 'duck', hot: false, name: 'Bebek Peking', sub: 'Fresh & Frozen · Premium', tags: ['Fresh', 'Frozen', 'Premium'], desc: 'Bebek Peking premium untuk restoran Chinese food, shabu-shabu, dan menu eksklusif.', img: 'https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=800&q=80&fit=crop' },
+            { cat: 'seafood', hot: false, name: 'Seafood Premium', sub: 'Ikan · Udang · Cumi & Lainnya', tags: ['Fresh', 'Frozen', 'Sourcing'], desc: 'Berbagai komoditas seafood segar dan beku. Sourcing dan matching dari supplier terpercaya.', img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80&fit=crop' },
+            { cat: 'other', hot: false, name: 'Kambing & Domba', sub: 'Karkas & Potongan · Fresh/Frozen', tags: ['Fresh', 'Frozen', 'Halal'], desc: 'Kambing dan domba halal berkualitas untuk restoran, katering, dan industri pengolahan.', img: 'https://images.unsplash.com/photo-1611171711912-e3f63d837e17?w=800&q=80&fit=crop' },
+            { cat: 'other', hot: false, name: 'Kerbau', sub: 'Daging Segar & Beku', tags: ['Fresh', 'Frozen', 'Halal'], desc: 'Daging kerbau halal berkualitas tersedia dalam kondisi segar dan beku sesuai kebutuhan bisnis.', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&fit=crop&hue=20' },
         ];
 
-        // ── Render Products ──
+        /* ══════════════════════════════════
+           CLIENTS DATA
+        ══════════════════════════════════ */
+        const CLIENTS = [
+            { name: 'Shabusen', cat: 'Japanese Hotpot Premium · Wagyu A5', badge: 'Wagyu Supplier', logo: 'assets/images/clients/shabusen.png', color: '#7A1A1A', isNew: false },
+            { name: 'Ensho Jakarta', cat: 'Japanese Shabu-shabu & Robatayaki', badge: 'Daging Sapi Import', logo: '', color: '#1A3A5A', isNew: false },
+            { name: 'Izakaya Futago', cat: 'Japanese Yakiniku · 120+ Cabang Dunia', badge: 'Yakiniku Partner', logo: 'assets/images/clients/futago.jpeg', color: '#2A1A5A', isNew: false },
+            { name: 'Soup Restaurant', cat: 'Chinese Comfort Food · 100% Halal', badge: 'Halal Partner', logo: 'assets/images/clients/soup-restaurant.webp', color: '#3A1A1A', isNew: false },
+            { name: 'Steak Hotel By Holycow!', cat: 'Pelopor Steak Premium Indonesia sejak 2010 · Wagyu & Black Angus', badge: 'Beef Supplier', logo: 'assets/images/clients/holycow.jpeg', color: '#8B1212', isNew: false },
+            { name: 'Pangansari', cat: 'Perusahaan Solusi Pangan Terintegrasi · Rajawali Corpora Group', badge: 'Bulk Supply Partner', logo: '', color: '#1A5A2A', isNew: true },
+            { name: 'PT Sauri Unggul Sejahtera', cat: 'Poultry & Protein Solutions', badge: 'Poultry Partner', logo: '', color: '#1A3A5A', isNew: true },
+        ];
+
+        /* ══════════════════════════════════
+           RENDER PRODUCTS
+        ══════════════════════════════════ */
         function renderProducts(cat) {
-            const grid = document.getElementById('prod-grid');
-            const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
-            grid.innerHTML = filtered.map(p => `
+            const grid = document.getElementById('prodGrid');
+            const list = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+            grid.innerHTML = list.map(p => `
     <div class="prod-card" data-cat="${p.cat}">
-      <div class="prod-card-head">
-        <span class="prod-emoji">${p.icon}</span>
-        <div class="prod-name">${p.name}</div>
-        <div class="prod-sub">${p.sub}</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-tags">
-          ${p.tags.map(t => `<span class="prod-tag ${p.hot && t === 'Terlaris' ? 'hot' : ''}">${t}</span>`).join('')}
-        </div>
-        <p class="prod-desc">${p.desc}</p>
-      </div>
-      <div class="prod-card-foot">
-        <button class="btn-request" onclick="openModal('${p.name.replace(/'/g, "\\'")}')">
-          <i class="fas fa-comments"></i> Request / Order
-        </button>
+      <div class="prod-card-img" style="background-image:url('${p.img}')"></div>
+      <div class="prod-card-overlay"></div>
+      ${p.hot ? '<div class="prod-corner-label">Terlaris</div>' : ''}
+      <div class="prod-card-body">
+        <div class="prod-card-cat">${p.cat === 'poultry' ? 'Ayam & Poultry' : p.cat === 'beef' ? 'Daging Sapi' : p.cat === 'duck' ? 'Bebek' : p.cat === 'seafood' ? 'Seafood' : 'Lainnya'}</div>
+        <div class="prod-card-name">${p.name}</div>
+        <div class="prod-card-sub">${p.sub}</div>
+        <div class="prod-card-tags">${p.tags.map(t => `<span class="prod-card-tag${t === 'Terlaris' || t === 'Populer' ? ' hot' : ''}">${t}</span>`).join('')}</div>
+        <button class="prod-order-btn" onclick="openModal('${p.name.replace(/'/g, "\\'")}')"><i class="fas fa-comments"></i> Request / Order</button>
       </div>
     </div>
   `).join('');
+            initReveal();
         }
 
-        document.querySelectorAll('.prod-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                renderProducts(tab.dataset.cat);
-                observeFadeUps();
-            });
+        document.getElementById('prodTabs').addEventListener('click', e => {
+            const tab = e.target.closest('.prod-tab');
+            if (!tab) return;
+            document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            renderProducts(tab.dataset.cat);
         });
 
-        // ══════════════════════════════════════
-        // DATA KLIEN
-        // ══════════════════════════════════════
-        const CLIENTS = [
-            { name: 'Shabusen', cat: 'Japanese Hotpot Premium', img: 'assets/images/clients/shabusen.png', badge: 'Wagyu Supplier' },
-            { name: 'Ensho Jakarta', cat: 'Japanese Shabu-shabu & Robatayaki', img: '', badge: 'Daging Sapi Import' },
-            { name: 'Izakaya Futago', cat: 'Japanese Yakiniku · 120+ Cabang Dunia', img: 'assets/images/clients/futago.jpeg', badge: 'Yakiniku Partner' },
-            { name: 'Soup Restaurant', cat: 'Chinese Comfort Food · 100% Halal', img: 'assets/images/clients/soup-restaurant.webp', badge: 'Halal Partner' },
-            { name: 'Holycow! Steakhouse', cat: 'Steakhouse by Chef Afit', img: 'assets/images/clients/holycow.jpeg', badge: 'Beef Supplier' },
-        ];
-
+        /* ══════════════════════════════════
+           RENDER CLIENTS
+        ══════════════════════════════════ */
         function renderClients() {
-            const grid = document.getElementById('klien-grid');
-            grid.innerHTML = CLIENTS.map(c => `
+            document.getElementById('klienGrid').innerHTML = CLIENTS.map(c => `
     <div class="klien-card">
-      ${c.img
-                    ? `<img class="klien-logo" src="${c.img}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-                    : ''
+      ${c.isNew ? '<div class="klien-new">New Client</div>' : ''}
+      <div class="klien-card-logo">
+        ${c.logo
+                    ? `<img src="${c.logo}" alt="${c.name}" onerror="this.parentElement.innerHTML='<div class=\'klien-logo-init\' style=\'background:${c.color}\'>${c.name.charAt(0)}</div>'">`
+                    : `<div class="klien-logo-init" style="background:${c.color}">${c.name.charAt(0)}</div>`
                 }
-      <div class="klien-logo-placeholder" ${c.img ? 'style="display:none"' : ''}>${c.name.charAt(0)}</div>
+      </div>
       <div class="klien-name">${c.name}</div>
       <div class="klien-cat">${c.cat}</div>
       <div class="klien-badge">${c.badge}</div>
@@ -2037,154 +2022,138 @@
   `).join('');
         }
 
-        // ══════════════════════════════════════
-        // NAVBAR
-        // ══════════════════════════════════════
-        const nav = document.getElementById('main-nav');
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
+        /* ══════════════════════════════════
+           NAVBAR
+        ══════════════════════════════════ */
         window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 60);
+            document.getElementById('nav').classList.toggle('solid', window.scrollY > 60);
         });
-
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-            const spans = hamburger.querySelectorAll('span');
-            if (navMenu.classList.contains('open')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            navLinks.classList.toggle('open');
+            const s = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('open')) {
+                s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+                s[1].style.opacity = '0';
+                s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
             } else {
-                spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+                s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; });
             }
         });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+        }));
 
-        navMenu.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-            });
-        });
-
-        // ══════════════════════════════════════
-        // MODAL
-        // ══════════════════════════════════════
-        function openModal(productName) {
-            document.getElementById('order-modal').classList.add('active');
+        /* ══════════════════════════════════
+           MODAL
+        ══════════════════════════════════ */
+        function openModal(name) {
+            document.getElementById('orderModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-            if (productName) document.getElementById('o-produk').value = productName;
-            document.getElementById('order-success').style.display = 'none';
-            document.getElementById('order-error').style.display = 'none';
+            if (name) document.getElementById('o-produk').value = name;
+            ['orderOk', 'orderErr'].forEach(id => document.getElementById(id).style.display = 'none');
         }
-
         function closeModal() {
-            document.getElementById('order-modal').classList.remove('active');
+            document.getElementById('orderModal').classList.remove('active');
             document.body.style.overflow = '';
         }
+        document.getElementById('orderModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
-        document.getElementById('order-modal').addEventListener('click', e => {
-            if (e.target === e.currentTarget) closeModal();
-        });
-
-        // ══════════════════════════════════════
-        // FORM: ORDER (Product Inquiry)
-        // ══════════════════════════════════════
-        document.getElementById('order-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const btn = document.getElementById('order-submit');
+        /* ══════════════════════════════════
+           FORMS
+        ══════════════════════════════════ */
+        async function submitForm(formId, okId, errId, btnId, payload) {
+            const btn = document.getElementById(btnId);
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp; Mengirim...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            try {
+                if (db) { const { error } = await db.from('inquiries').insert([payload]); if (error) throw error; }
+                document.getElementById(okId).style.display = 'block';
+                document.getElementById(formId).reset();
+                btn.innerHTML = '<i class="fas fa-check"></i> Terkirim!';
+            } catch (e) {
+                document.getElementById(errId).style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Permintaan';
+            }
+        }
 
+        document.getElementById('orderForm').addEventListener('submit', e => {
+            e.preventDefault();
             const payload = {
-                nama: document.getElementById('o-nama').value.trim(),
-                perusahaan: document.getElementById('o-perusahaan').value.trim(),
-                telepon: document.getElementById('o-telepon').value.trim(),
-                email: document.getElementById('o-email').value.trim(),
-                produk: document.getElementById('o-produk').value.trim(),
-                kapasitas_per_bulan: document.getElementById('o-kapasitas').value.trim(),
+                nama: document.getElementById('o-nama').value,
+                perusahaan: document.getElementById('o-perusahaan').value,
+                telepon: document.getElementById('o-telepon').value,
+                email: document.getElementById('o-email').value,
+                produk: document.getElementById('o-produk').value,
+                kapasitas_per_bulan: document.getElementById('o-kapasitas').value,
                 metode_pembayaran: document.getElementById('o-pembayaran').value,
-                kota: document.getElementById('o-kota').value.trim(),
-                catatan: document.getElementById('o-catatan').value.trim(),
-                sumber: 'website_form',
+                kota: document.getElementById('o-kota').value,
+                catatan: document.getElementById('o-catatan').value,
+                sumber: 'website_form'
             };
-
-            try {
-                if (db) {
-                    const { error } = await db.from('inquiries').insert([payload]);
-                    if (error) throw error;
-                }
-                document.getElementById('order-success').style.display = 'block';
-                this.reset();
-                btn.innerHTML = '✓ Terkirim!';
-                // Also open WA as backup
-                setTimeout(() => {
-                    const msg = `Halo Prima, saya ${payload.nama} dari ${payload.perusahaan}. Saya baru mengisi form di website untuk produk: ${payload.produk} (${payload.kapasitas_per_bulan}/bulan).`;
-                    window.open(`https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(msg)}`, '_blank');
-                }, 1800);
-            } catch (err) {
-                console.error(err);
-                document.getElementById('order-error').style.display = 'block';
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Kirim Permintaan';
-            }
+            submitForm('orderForm', 'orderOk', 'orderErr', 'orderSubmit', payload);
+            setTimeout(() => {
+                const msg = `Halo Prima, saya ${payload.nama} dari ${payload.perusahaan}. Saya baru mengisi form untuk: ${payload.produk} (${payload.kapasitas_per_bulan}/bln).`;
+                window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+                setTimeout(closeModal, 2000);
+            }, 1800);
         });
 
-        // ══════════════════════════════════════
-        // FORM: CONTACT
-        // ══════════════════════════════════════
-        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+        document.getElementById('contactForm').addEventListener('submit', e => {
             e.preventDefault();
-            const btn = document.getElementById('contact-submit');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp; Mengirim...';
-
             const payload = {
-                nama: document.getElementById('c-nama').value.trim(),
-                perusahaan: document.getElementById('c-perusahaan').value.trim(),
-                telepon: document.getElementById('c-telepon').value.trim(),
-                email: document.getElementById('c-email').value.trim(),
-                pesan: document.getElementById('c-pesan').value.trim(),
-                sumber: 'website_contact',
+                nama: document.getElementById('c-nama').value,
+                perusahaan: document.getElementById('c-perusahaan').value,
+                telepon: document.getElementById('c-telepon').value,
+                email: document.getElementById('c-email').value,
+                pesan: document.getElementById('c-pesan').value,
+                sumber: 'website_contact'
             };
-
-            try {
-                if (db) {
-                    const { error } = await db.from('contacts').insert([payload]);
-                    if (error) throw error;
-                }
-                document.getElementById('contact-success').style.display = 'block';
-                this.reset();
-                btn.innerHTML = '✓ Terkirim!';
-            } catch (err) {
-                console.error(err);
-                document.getElementById('contact-error').style.display = 'block';
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Kirim Permintaan';
-            }
+            submitForm('contactForm', 'contactOk', 'contactErr', 'contactSubmit', payload);
         });
 
-        // ══════════════════════════════════════
-        // SCROLL ANIMATIONS
-        // ══════════════════════════════════════
-        function observeFadeUps() {
-            const io = new IntersectionObserver((entries) => {
+        /* ══════════════════════════════════
+           COUNTER ANIMATION
+        ══════════════════════════════════ */
+        function animateCounter(el) {
+            const target = +el.dataset.count;
+            let current = 0;
+            const step = Math.ceil(target / 40);
+            const timer = setInterval(() => {
+                current = Math.min(current + step, target);
+                el.textContent = current + '+';
+                if (current >= target) clearInterval(timer);
+            }, 40);
+        }
+
+        /* ══════════════════════════════════
+           SCROLL REVEAL
+        ══════════════════════════════════ */
+        function initReveal() {
+            const io = new IntersectionObserver(entries => {
                 entries.forEach(en => {
-                    if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+                    if (en.isIntersecting) {
+                        en.target.classList.add('in');
+                        if (en.target.dataset.count) animateCounter(en.target);
+                        io.unobserve(en.target);
+                    }
                 });
-            }, { threshold: 0.12 });
-            document.querySelectorAll('.fade-up').forEach(el => {
-                if (!el.classList.contains('visible')) io.observe(el);
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal,[data-count]').forEach(el => {
+                if (!el.classList.contains('in')) io.observe(el);
             });
         }
 
-        // ══════════════════════════════════════
-        // INIT
-        // ══════════════════════════════════════
+        /* ══════════════════════════════════
+           INIT
+        ══════════════════════════════════ */
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts('all');
             renderClients();
-            observeFadeUps();
+            initReveal();
         });
     </script>
 </body>
